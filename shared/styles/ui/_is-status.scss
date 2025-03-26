@@ -1,0 +1,25 @@
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    공용 상태 스타일
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+// 가로 100%
+.is-wid100p {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.is-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 14em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    line-height: 1.4em;
+    white-space: pre-wrap;
+}
+
+.is-invisible {
+    visibility: hidden;
+}

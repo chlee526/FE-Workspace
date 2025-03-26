@@ -1,0 +1,155 @@
+.ui_bedge {
+    display: inline-block;
+    padding: 0 8px;
+    line-height: 24px;
+    letter-spacing: 0;
+
+    &:not(.is-icon) {
+        border-radius: 100px;
+        background: #fff;
+    }
+
+    &.is-rect {
+        min-width: 20px;
+        padding: 0 4px;
+        border-radius: 4px;
+        background-color: var(--color, #666);
+        box-sizing: border-box;
+        color: #fff;
+        text-align: center;
+    }
+
+    &.is-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        > *:first-child {
+            width: 14px;
+            height: 14px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        > *:first-child:not(:only-child) {
+            margin-right: 3px;
+        }
+
+        &:not(.is-portal) {
+            > *:first-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1em;
+                height: 1em;
+                padding: 0.25em;
+                font-size: var(--fontSize, 10px);
+                background-color: var(--color, #666);
+                color: #fff;
+            }
+        }
+
+        &.is-portal {
+            > *:first-child {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                }
+
+                &.naver {
+                    &::before {
+                        background-image: url(@shared/styles/ui/img/naver.svg);
+                    }
+                }
+                &.nate {
+                    &::before {
+                        background-image: url(@shared/styles/ui/img/nate.svg);
+                    }
+                }
+                &.daum {
+                    &::before {
+                        background-image: url(@shared/styles/ui/img/daum.svg);
+                    }
+                }
+                &.zoom {
+                    &::before {
+                        background-image: url(@shared/styles/ui/img/zoom.svg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-wide {
+        padding: 0 20px;
+    }
+
+    // 삭제 기능 들어간 경우(a or button으로 사용)
+    &.is-remove {
+        position: relative;
+        cursor: pointer;
+
+        &:after {
+            content: '\e019';
+            position: absolute;
+            top: -5px;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            line-height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            box-sizing: border-box;
+            font-family: icomoon;
+            color: #999;
+            text-align: center;
+            font-size: 8px;
+            @include opacity(0);
+            @include transition();
+        }
+
+        &:hover {
+            &:after {
+                right: -5px;
+                @include opacity(1);
+            }
+        }
+    }
+
+    // 컬러
+    &.is-customPoint {
+        &:not(.is-icon) {
+            border-color: $point_color !important;
+            background-color: $point_color !important;
+            color: #ffffff !important;
+        }
+    }
+    &.is-customColor {
+        &:not(.is-icon) {
+            border-color: var(--color) !important;
+            background-color: var(--color) !important;
+            color: #ffffff !important;
+        }
+    }
+    &.is-customColor-black {
+        &:not(.is-icon) {
+            border-color: var(--color) !important;
+            background-color: var(--color) !important;
+            color: #666 !important;
+        }
+    }
+
+    // 배경 dims
+    &.is-color-dims {
+        background: rgba(0, 0, 0, 0.05);
+        color: #666;
+    }
+
+    // Size
+    &.is-xsmall {
+        line-height: 20px;
+    }
+}

@@ -1,0 +1,36 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+@at-root #wrap {
+    min-width: 900px;
+}
+
+.appContainerWrap {
+    min-width: 0 !important;
+
+    .page-helper {
+        display: flex;
+
+        #content {
+            flex: 1 1 100% !important;
+            justify-content: flex-start !important;
+            height: 100vh !important;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+
+            > .lnb {
+                flex: 0 0 220px;
+            }
+
+            > .content {
+                flex: 1 1 auto;
+                height: 100vh;
+                padding: 2em 3em;
+                box-sizing: border-box;
+                overflow-y: scroll;
+            }
+        }
+    }
+}

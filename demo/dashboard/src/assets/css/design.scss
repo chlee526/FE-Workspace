@@ -1,0 +1,64 @@
+/*
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * 공용(Shared/Override)
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+*/
+@import '@shared/styles/styles.scss'; // Base(Variables, Mixins, Normalize, Reset, Font, ColorSet)
+
+/*******************************************************************************/
+/*******************************************************************************/
+/*****  OVERIDE ****************************************************************/
+@import './override/color_set'; // Override
+@import './override/layout'; // Override
+/*****  OVERIDE ****************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+
+/* 레이아웃 */
+@import '@shared/layout/styles.scss'; // Layout, Grid, Header, Footer,
+
+/* UI */
+@import '@shared/styles/ui/styles.scss';
+
+/* Project Scss to JS Export Module */
+@import './override/export.module.scss'; // Override
+
+/* Component */
+@import '@shared/ui/styles.scss';
+
+// Template
+@import '@shared/templates/styles.scss';
+
+/*  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * 프로젝트 전용
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+/* VIEW > Page */
+
+// 도움말 레퍼러 링크
+.reference_lnk {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: #666;
+    line-height: 1;
+    color: #fff !important;
+    z-index: 1;
+
+    &:before {
+        content: '\e006';
+        font-family: 'icomoon';
+        padding-right: 6px;
+        text-indent: 0;
+    }
+
+    > span {
+        display: inline-block;
+        line-height: 1;
+    }
+}
+
+/* vendors(외부 라이브러리 스타일) */
+@import './vendors/default';
+@import './vendors/railscasts';

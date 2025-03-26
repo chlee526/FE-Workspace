@@ -1,0 +1,32 @@
+[submodule "demo/dashboard"]
+	path = demo/dashboard
+	url = https://dev.realsn.com/rnd/solution/fe/workspace/demo-dashboard.git
+    ignore = all
+[submodule "projects/2023_shinhancard"]
+	path = projects/2023_shinhancard
+	url = https://dev.realsn.com/rnd/solution/fe/2023/2023_shinhancard.git
+    ignore = all
+[submodule "boilerplate/dashboard"]
+	path = boilerplate/dashboard
+	url = https://dev.realsn.com/rnd/solution/fe/workspace/boilerplate-dashboard.git
+    ignore = all
+[submodule "boilerplate/admin"]
+	path = boilerplate/admin
+	url = https://dev.realsn.com/rnd/solution/fe/workspace/few-boilerplate-admin.git
+	ignore = all
+[submodule "projects/2023_marketsensing"]
+	path = projects/2023_marketsensing
+	url = https://dev.realsn.com/rnd/solution/fe/2023/2023_mkss.git
+	ignore = all
+[submodule "projects/2023_cjmia"]
+	path = projects/2023_cjmia
+	url = https://dev.realsn.com/rnd/solution/fe/2023/2023_cjmia.git
+	ignore = all
+[submodule "projects/2024_inspectcjpr"]
+	path = projects/2024_inspectcjpr
+	url = https://dev.realsn.com/rnd/solution/fe/2024/2024_inspectcjpr.git
+    ignore = all
+[submodule "projects/2024_woowahan"]
+	path = projects/2024_woowahan
+	url = https://dev.realsn.com/rnd/solution/fe/2024/2024_woowahan.git
+    ignore = all

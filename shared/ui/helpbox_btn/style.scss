@@ -1,0 +1,53 @@
+.ui_helpbox_btn {
+    > input {
+        @include customComponent();
+
+        & + label {
+            @extend .ui_btn;
+            padding: 6px !important;
+            font-family: 'icomoon';
+            font-size: 16px;
+        }
+
+        &:checked {
+            & + label {
+                @extend .ui_btn, .is-active;
+            }
+        }
+    }
+
+    &.is-small {
+        > input {
+            & + label {
+                height: 24px !important;
+                padding: 3px 4px !important;
+                font-size: 14px;
+            }
+        }
+    }
+}
+.ui_help_box {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+
+    > .wrap {
+        // @shared/styles/ui/helper <- 여기서 관리
+        @extend .ui_help;
+    }
+
+    &.is-fixed {
+        height: auto;
+
+        > .wrap {
+            padding: 0;
+
+            > ul {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}

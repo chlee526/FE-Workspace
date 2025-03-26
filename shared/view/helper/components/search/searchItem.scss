@@ -1,0 +1,86 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4em;
+    padding: 3em 0;
+
+    > .locate {
+        font-size: 1.846em;
+        font-weight: 600;
+
+        .cnt {
+            color: $font_color_dm;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+    }
+
+    > .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8em;
+
+        .subItem {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            padding: 0 0.2em;
+
+            &:hover {
+                > .title {
+                    > *:last-child {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            > .title {
+                display: flex;
+                flex-direction: column;
+                gap: 0.1em;
+                align-items: flex-start;
+                font-size: 1.385em;
+                font-weight: 400;
+                @include transition();
+
+                > * {
+                    &:not(:only-child) {
+                        &:first-child {
+                            padding: 0.3em 0.5em;
+                            margin: 0 0 0 -0.5em;
+                            border: 1px solid rgba(0, 0, 0, 0.05);
+                            border-radius: 3px;
+                            background: #fff;
+                            font-size: 12px;
+                            // opacity: 0.7;
+
+                            // &:after {
+                            //     content: '\e042';
+                            //     padding: 0 0 0 0.3em;
+                            //     font-family: icomoon;
+                            //     color: #999;
+                            //     font-size: 11px;
+                            // }
+                        }
+                    }
+                }
+            }
+
+            > .content {
+                color: $font_color_dm;
+                line-height: 1.4em;
+                @include transition();
+            }
+        }
+    }
+
+    // 키워드 하이라이트
+    .is-highlight {
+        padding: 0 0.1em;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}

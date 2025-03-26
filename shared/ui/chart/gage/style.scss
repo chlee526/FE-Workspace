@@ -1,0 +1,39 @@
+// 감성 게이지 차트
+.ui_senti_gage {
+    padding: 0;
+    height: 16px;
+    @include transition();
+
+    &.is-nodata {
+        filter: grayscale(100%);
+    }
+
+    > ul {
+        display: flex;
+        height: 100%;
+        border-radius: 200px;
+        overflow: hidden;
+
+        > li {
+            flex-grow: 1;
+            color: #ffffff;
+            font-size: 11px;
+            @include transition();
+
+            > * {
+                display: block;
+                height: 100%;
+                @include transition();
+            }
+
+            .gage_item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                text-align: center;
+                overflow: hidden;
+            }
+        }
+    }
+}

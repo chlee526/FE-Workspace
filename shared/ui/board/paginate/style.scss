@@ -1,0 +1,73 @@
+.ui_paginate {
+    position: relative;
+
+    .wrap {
+        display: flex;
+        justify-content: center;
+        gap: 0 2px;
+        vertical-align: top;
+        // @include clearBoth();
+
+        > * {
+            align-self: center;
+
+            &.prev {
+                margin-right: 8px;
+            }
+            &.next {
+                margin-left: 8px;
+            }
+        }
+
+        .btn_page {
+            position: relative;
+            // float: left;
+            min-width: 30px;
+            height: 30px;
+            padding: 0 4px;
+            border: 1px solid transparent;
+            border-radius: 100px;
+            background: transparent;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 28px;
+            @include transition();
+
+            &:not([disabled]):hover {
+                border-color: $component_brd_color_over;
+                background: $component_bg_color_over;
+            }
+
+            &.is-active {
+                border-color: $component_brd_color_active !important;
+                background: $component_bg_color_active !important;
+                color: #ffffff !important;
+            }
+
+            &[disabled],
+            &.is-disabled {
+                border: 1px solid $component_brd_color_disabled;
+                background: $component_bg_color_disabled;
+                color: $component_font_color_disabled;
+                cursor: default;
+                pointer-events: none;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .is-mobile {
+            display: none;
+            float: left;
+            padding: 0 12px;
+            line-height: 30px;
+        }
+    }
+}

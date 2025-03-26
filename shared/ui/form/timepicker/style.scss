@@ -1,0 +1,376 @@
+// time picker
+.dcp_time_picker {
+    @include inlineBlock();
+    position: relative;
+    vertical-align: top;
+    @include inlineBlock();
+    @include clearBoth();
+
+    > .input_wrap {
+        display: flex;
+        flex-wrap: nowrap;
+
+        > .wrap {
+            margin: 1px 0;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+
+            &.is-month-move {
+                padding: 0 32px;
+            }
+
+            > .date_result {
+                display: block;
+                position: relative;
+                min-width: 125px;
+                padding: 0 35px 0 10px;
+                border: 1px solid $component_brd_color;
+                border-radius: 5px;
+                background: #ffffff;
+                box-sizing: border-box;
+                font-size: 1.083em;
+                line-height: 28px;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+                @include transition();
+
+                &:after {
+                    content: '\e011';
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 16px;
+                    font-family: 'icomoon';
+                    font-size: 16px;
+                    line-height: 1;
+                }
+
+                .colon {
+                    margin: 0 4px;
+                }
+
+                &:hover {
+                    border: 1px solid $component_brd_color_over;
+                    z-index: 1;
+                }
+
+                &.is-active {
+                    border: 1px solid $component_brd_color_active;
+                    color: $component_font_color_active;
+                    @include shadow(0, 0, 0, 0, 0, 0, 0);
+                    z-index: 1;
+                }
+
+                &[disabled] {
+                    border: 1px solid $component_brd_color_disabled;
+                    background: $component_bg_color_disabled;
+                    color: $component_font_color_disabled !important;
+                    cursor: default;
+                    @include shadow(0, 0, 0, 0, 0, 0, 0);
+                }
+            }
+
+            > .ui_btn {
+                position: absolute;
+                top: 0;
+
+                &.is-prev {
+                    left: 0;
+                    margin: 0;
+                }
+                &.is-next {
+                    right: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .time_box {
+        display: flex;
+        flex-wrap: nowrap;
+        position: fixed;
+        border: 1px solid $component_brd_color;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 1px 0 0 0;
+        background: #fff;
+        @include shadow(0, 1px, 2px, 0.16, 0, 0, 0);
+        z-index: 1;
+
+        > .item {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            position: relative;
+            // padding: 0 15px 0 0;
+            vertical-align: top;
+
+            > * {
+                align-self: stretch;
+                position: relative;
+                border: 1px solid $component_brd_color;
+                border-radius: 5px;
+            }
+
+            &:not(:nth-last-child(1)):not(:nth-last-child(2)):after {
+                content: ':';
+                align-self: center;
+                width: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                margin: -0.3em 0 0 0;
+                line-height: 1;
+                color: $font_color_dm;
+            }
+
+            &:nth-last-child(2) {
+                padding-right: 5px;
+
+                &:after {
+                    content: none;
+                }
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+        .ampm_box {
+            display: flex;
+            flex-direction: column;
+            align-content: stretch;
+            border: none;
+            border-radius: 0;
+            // background: #ffffff;
+
+            .bx {
+                width: 36px;
+                // height: 20px;
+                box-sizing: border-box;
+
+                > input[type='radio'] {
+                    @include customComponent();
+
+                    & + label {
+                        display: block;
+                        width: 36px;
+                        height: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid $component_brd_color;
+                        background: #ffffff;
+                        color: $component_font_color;
+                        text-align: center;
+                        line-height: 19px;
+                        cursor: pointer;
+                        @include transition();
+                    }
+                    &:checked + label {
+                        border-color: $component_brd_color_active;
+                        background: $component_brd_color_active;
+                        color: #fff;
+                    }
+                }
+
+                &:first-child {
+                    > input[type='radio'] {
+                        & + label {
+                            border-bottom: none;
+                            border-top-left-radius: 4px;
+                            border-top-right-radius: 4px;
+                        }
+                    }
+                }
+                &:last-child {
+                    > input[type='radio'] {
+                        & + label {
+                            border-top: none;
+                            border-bottom-left-radius: 4px;
+                            border-bottom-right-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+        .time_bx {
+            border-radius: 4px;
+            background: #ffffff;
+
+            .wrap {
+                display: flex;
+                flex-wrap: nowrap;
+                width: 59px;
+                height: 40px;
+                margin: -1px;
+
+                .res {
+                    width: 37px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 38px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    border-right: 1px solid $component_brd_color;
+                    input[type='text'] {
+                        width: 100%;
+                        border: 0;
+                        height: 32px;
+                        text-align: center;
+                    }
+                }
+                .btn {
+                    input {
+                        @include customComponent();
+
+                        & + label {
+                            display: block;
+                            width: 21px;
+                            height: 20px;
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            line-height: 20px;
+                            text-align: center;
+                            @include transition();
+                        }
+                        &:hover + label {
+                            background: $component_bg_color_active;
+                            color: #fff;
+                            border-radius: 0 0 5px 0;
+                        }
+                    }
+                    .up {
+                        input {
+                            & + label {
+                                border-bottom: 1px solid $component_brd_color;
+                            }
+                            &:hover + label {
+                                border-radius: 0 5px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .no_use {
+            border: none;
+
+            .wrap {
+                height: 40px;
+
+                .res {
+                    float: left;
+                    //width:37px;
+                    height: 40px;
+                    text-align: left;
+                    line-height: 38px;
+                    font-size: 20px;
+                    color: $font_color_dm;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &.box_mode {
+        float: none;
+        .input_wrap {
+            display: none;
+        }
+        .time_box {
+            position: relative;
+            border: 0;
+            box-shadow: none;
+            border-radius: 0;
+            background: transparent;
+            z-index: auto;
+
+            &[disabled] {
+                * {
+                    pointer-events: none;
+                    cursor: not-allowed;
+                    user-select: none;
+                    color: $component_font_color_disabled;
+                    .time_bx {
+                        background: $component_bg_color_disabled;
+                        .res {
+                            border-color: $component_brd_color_disabled;
+                        }
+                    }
+
+                    .ampm_box {
+                        .bx > input[type='radio'] + label {
+                            background: $component_bg_color_disabled;
+                            border-color: $component_brd_color_disabled;
+                            color: $component_font_color_disabled;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-small {
+        > .input_wrap {
+            > .wrap {
+                > .date_result {
+                    min-width: 110px;
+                    padding: 0 25px 0 6px;
+                    line-height: 20px;
+
+                    &:after {
+                        right: 6px;
+                        width: 12px;
+                        height: 12px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-large {
+        > .input_wrap {
+            > .wrap {
+                > .date_result {
+                    min-width: 145px;
+                    padding: 0 45px 0 14px;
+                    font-size: 1.167em;
+                    line-height: 34px;
+
+                    &:after {
+                        right: 14px;
+                        width: 20px;
+                        height: 20px;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-xlarge {
+        > .input_wrap {
+            > .wrap {
+                > .date_result {
+                    min-width: 170px;
+                    padding: 0 51px 0 20px;
+                    font-size: 1.333em;
+                    line-height: 48px;
+
+                    &:after {
+                        right: 20px;
+                        width: 20px;
+                        height: 20px;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

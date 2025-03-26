@@ -1,0 +1,19 @@
+@import '@shared/styles/layout/layout';
+
+#wrap {
+    // LNB
+    &.is-lnb {
+        > .appContainerWrap {
+            > header {
+                flex: 0 0 220px;
+                max-width: none;
+
+                .util_nav_wrap {
+                    > div:nth-child(2) {
+                        overflow-y: scroll !important;
+                    }
+                }
+            }
+        }
+    }
+}

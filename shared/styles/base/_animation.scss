@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * Animation
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+// Loader
+@keyframes loaderAni {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * Vue Transition - 공통
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+// Fade
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+// Fade/Scale
+.fade_scale-enter-active,
+.fade_scale-leave-active {
+    transition: opacity 0.3s;
+
+    .popup_item,
+    .box {
+        transition: transform 0.3s;
+    }
+}
+.fade_scale-enter,
+.fade_scale-leave-to {
+    opacity: 0;
+
+    .popup_item {
+        transform: scale(0.95, 0.95);
+    }
+
+    .box {
+        transform: scale(0.9, 0.9);
+    }
+}
+
+// Fade/PositionY(transform)
+.fade_posy-enter-active,
+.fade_posy-leave-active {
+    transition: opacity 0.16s, transform 0.16s;
+}
+.fade_posy-enter,
+.fade_posy-leave-to {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+// Fade/PositionX(transform)
+.fade_posx-enter-active,
+.fade_posx-leave-active {
+    transition: opacity 0.16s, transform 0.16s;
+}
+.fade_posx-enter,
+.fade_posx-leave-to {
+    opacity: 0;
+    transform: translateX(-6px);
+}
+
+// Fade/PositionX - reverse(transform)
+.fade_posx_reverse-enter-active,
+.fade_posx_reverse-leave-active {
+    transition: opacity 0.16s, transform 0.16s;
+}
+.fade_posx_reverse-enter,
+.fade_posx_reverse-leave-to {
+    opacity: 0;
+    transform: translateX(6px);
+}
+
+// Fade/PositionY(margin)
+.fade_posy_margin-enter-active,
+.fade_posy_margin-leave-active {
+    transition: opacity 0.16s, margin 0.16s;
+}
+.fade_posy_margin-enter,
+.fade_posy_margin-leave-to {
+    opacity: 0;
+    margin-top: 6px;
+}
+
+// Fade/PositionY - reverse(margin)
+.fade_posy_margin_reverse-enter-active,
+.fade_posy_margin_reverse-leave-active {
+    transition: opacity 0.16s, margin 0.16s;
+}
+.fade_posy_margin_reverse-enter,
+.fade_posy_margin_reverse-leave-to {
+    opacity: 0;
+    margin-top: -6px;
+}
+
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * Vue Transition - 특정
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+// GNB 서브 네비게이션
+.gnb_sub-enter-active,
+.gnb_sub-leave-active {
+    transition: all 0.16s;
+}
+.gnb_sub-enter,
+.gnb_sub-leave-active {
+    opacity: 0;
+    margin: -50px 0 0 0;
+    @at-root .is-admin & {
+        margin: 0 0 0 0;
+    }
+}
+
+// GNB depth3 네비게이션
+.gnb_sub_3-enter-active,
+.gnb_sub_3-leave-active {
+    transition: all 0.16s;
+}
+.gnb_sub_3-enter,
+.gnb_sub_3-leave-active {
+    // margin-right: 100%;
+    opacity: 0;
+}
+
+// LNB 서브 네비게이션
+.lnb_sub-enter-active,
+.lnb_sub-leave-active {
+    transition: all 0.24s;
+}
+.lnb_sub-enter,
+.lnb_sub-leave-active {
+    // opacity: 0;
+    // margin: -200px 0 0 0;
+    // transform: translateY(-100%);
+    // max-height: 0;
+    // height: 0;
+    margin-top: var(--hgt);
+    // transform: translateY(-100%);
+    // height: 10px;
+}
+
+// Noty
+.fade_posy_notification-enter-active,
+.fade_posy_notification-leave-active {
+    transition: all 0.3s;
+}
+.fade_posy_notification-enter {
+    opacity: 0;
+    top: -100%;
+}
+
+.fade_posy_notification_top-enter-active,
+.fade_posy_notification_top-leave-active {
+    transition: all 0.3s;
+}
+.fade_posy_notification_top-enter {
+    opacity: 0;
+    top: -100%;
+    // margin-top: -20px !important;
+}
+
+.fade_posy_notification_bottom-enter {
+    opacity: 0;
+    transform: translateY(40%);
+}
+.fade_posy_notification_bottom-leave-to {
+    opacity: 0;
+    transform: translateY(-40%);
+}
+.fade_posy_notification_bottom-active {
+    position: absolute;
+}
+
+// Filter Grp
+.filter_grp-enter-active,
+.filter_grp-leave-active {
+    transition: opacity 0.24s, margin-top 0.24s;
+}
+.filter_grp-enter,
+.filter_grp-leave-to {
+    opacity: 0;
+    margin-top: 10px;
+    // transform: scale(0.5);
+}
+// Filter Grp - Left
+.filter_grp_left-enter-active,
+.filter_grp_left-leave-active {
+    transition: opacity 0.24s, margin-left 0.24s;
+}
+.filter_grp_left-enter,
+.filter_grp_left-leave-to {
+    opacity: 0;
+    margin-left: -10px;
+}
+// Filter Grp - Left
+.filter_grp_right-enter-active,
+.filter_grp_right-leave-active {
+    transition: opacity 0.24s, margin-left 0.24s;
+}
+.filter_grp_right-enter,
+.filter_grp_right-leave-to {
+    opacity: 0;
+    margin-left: 10px;
+}
+
+// BreadThumb
+.breadcrumb-leave-active {
+    transition: opacity 0.4s, transform 0.4s;
+    transition-delay: 0;
+}
+.breadcrumb-enter-active {
+    transition: opacity 0.4s, transform 0.4s;
+    transition-delay: 0.5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+// HelperButton
+.helperBtn-enter-active,
+.helperBtn-leave-active {
+    transition: opacity 0.24s, margin-right 0.24s;
+}
+.helperBtn-enter,
+.helperBtn-leave-to {
+    opacity: 0;
+    margin-right: -90px;
+}

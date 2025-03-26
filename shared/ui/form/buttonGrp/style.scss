@@ -1,0 +1,19 @@
+.ui-btn-grp {
+    > .ui-filter-grp {
+        > .items_wrap {
+            > .items {
+                width: 80px;
+                display: flex;
+                flex-direction: column;
+                gap: 1px;
+                padding: 0;
+
+                > .ui_btn {
+                    width: 100%;
+                    border: none;
+                    border-radius: unset;
+                }
+            }
+        }
+    }
+}

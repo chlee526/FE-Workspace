@@ -1,0 +1,290 @@
+diff --git a/node_modules/vue-virtual-scroll-list/dist/index.js b/node_modules/vue-virtual-scroll-list/dist/index.js
+index 60cdc77..77cfda2 100644
+--- a/node_modules/vue-virtual-scroll-list/dist/index.js
++++ b/node_modules/vue-virtual-scroll-list/dist/index.js
+@@ -521,6 +521,17 @@
+     headerStyle: {
+       type: Object
+     },
++    tmpareaTag: {
++      type: String,
++      'default' : 'div'
++    },
++    tmpareaClass: {
++      type: String,
++      "default": ''
++    },
++    tmpareaStyle: {
++      type: Object
++    },
+     footerTag: {
+       type: String,
+       "default": 'div'
+@@ -534,6 +545,10 @@
+     },
+     itemScopedSlots: {
+       type: Object
++    },
++    scrollRoot:{
++      type: HTMLElement,
++      default: () => null,
+     }
+   };
+   var ItemProps = {
+@@ -586,6 +601,7 @@
+   var Wrapper = {
+     created: function created() {
+       this.shapeKey = this.horizontal ? 'offsetWidth' : 'offsetHeight';
++      
+     },
+     mounted: function mounted() {
+       var _this = this;
+@@ -637,19 +653,24 @@
+         source: source,
+         index: index
+       });
+-      return h(tag, {
+-        key: uniqueKey,
+-        attrs: {
+-          role: 'listitem'
+-        }
+-      }, [slotComponent ? slotComponent({
++      
++      // list-item 생성 없이 slot이나 component 바로 오게 수정
++      const inputSlot = slotComponent ? slotComponent({
+         item: source,
+         index: index,
+         scope: props
+-      }) : h(component, {
++      })[0] : null;
++      
++      const inputComponent = h(component, {
+         props: props,
+         scopedSlots: scopedSlots
+-      })]);
++      })
++      
++      const vnode = slotComponent ? inputSlot : inputComponent;
++      vnode.key= uniqueKey;
++      vnode.data = { ...vnode.data, key : uniqueKey, attrs: { ...vnode.data?.attrs, role: 'listitem' } }
++      
++      return vnode; 
+     }
+   });
+ 
+@@ -677,6 +698,8 @@
+     SLOT: 'slot_resize'
+   };
+   var SLOT_TYPE = {
++    TMPAREA: 'tmparea',
++    COLGROUP: 'colgroup',
+     HEADER: 'thead',
+     // string value also use for aria role attribute
+     FOOTER: 'tfoot'
+@@ -724,12 +747,19 @@
+         document.addEventListener('scroll', this.onScroll, {
+           passive: false
+         });
++      } else if(this.scrollRoot){
++          this.scrollRoot.addEventListener('scroll', this.onScroll, { passive: false })
+       }
++        
++      
+     },
+     deactivated: function deactivated() {
+       if (this.pageMode) {
+         document.removeEventListener('scroll', this.onScroll);
+       }
++      if(this.scrollRoot){
++        this.scrollRoot.removeEventListener('scroll', this.onScroll)
++      }
+     },
+     mounted: function mounted() {
+       // set position
+@@ -745,13 +775,23 @@
+         document.addEventListener('scroll', this.onScroll, {
+           passive: false
+         });
++      } else {
++        this.$nextTick(()=> {
++          if(this.scrollRoot){
++            this.scrollRoot.addEventListener('scroll', this.onScroll, { passive: false })
++          }
++        })
+       }
++
+     },
+     beforeDestroy: function beforeDestroy() {
+       this.virtual.destroy();
+       if (this.pageMode) {
+         document.removeEventListener('scroll', this.onScroll);
+       }
++      if(this.scrollRoot){
++        this.scrollRoot.removeEventListener('scroll', this.onScroll)
++      }
+     },
+     methods: {
+       // get item size by id
+@@ -767,8 +807,15 @@
+         if (this.pageMode) {
+           return document.documentElement[this.directionKey] || document.body[this.directionKey];
+         } else {
+-          var root = this.$refs.root;
+-          return root ? Math.ceil(root[this.directionKey]) : 0;
++          const root = this.$refs.root;
++
++          if (this.scrollRoot){
++            const offset = this.scrollRoot[this.directionKey];
++            return Math.ceil(offset);
++          } else {
++            return root ? Math.ceil(root[this.directionKey]) : 0;
++          }
++          
+         }
+       },
+       // return client viewport size
+@@ -777,8 +824,13 @@
+         if (this.pageMode) {
+           return document.documentElement[key] || document.body[key];
+         } else {
+-          var root = this.$refs.root;
+-          return root ? Math.ceil(root[key]) : 0;
++          const root = this.$refs.root;
++
++          if (this.scrollRoot){
++            return Math.ceil(this.scrollRoot[key]);
++          } else {
++            return root ? Math.ceil(root[key]) : 0;
++          }
+         }
+       },
+       // return all scroll size
+@@ -787,8 +839,14 @@
+         if (this.pageMode) {
+           return document.documentElement[key] || document.body[key];
+         } else {
+-          var root = this.$refs.root;
+-          return root ? Math.ceil(root[key]) : 0;
++          const root = this.$refs.root;
++
++          if (this.scrollRoot){
++            return Math.ceil(this.scrollRoot[key]);
++          } else {
++            return root ? Math.ceil(root[key]) : 0;
++          }
++          
+         }
+       },
+       // set current scroll position to a expectant offset
+@@ -798,6 +856,7 @@
+           document.documentElement[this.directionKey] = offset;
+         } else {
+           var root = this.$refs.root;
++          
+           if (root) {
+             root[this.directionKey] = offset;
+           }
+@@ -835,6 +894,17 @@
+       // taking root offset relative to the browser as slot header size
+       updatePageModeFront: function updatePageModeFront() {
+         var root = this.$refs.root;
++
++        if (this.scrollRoot) {
++          const rect = this.scrollRoot.getBoundingClientRect();
++          const { defaultView } = scrollRoot.ownerDocument;
++          const offsetFront = this.isHorizontal
++            ? rect.left + defaultView.pageX
++            : rect.top + defaultView.pageY;
++          this.virtual.updateParam("slotHeaderSize", offsetFront);
++          return;
++        }
++
+         if (root) {
+           var rect = root.getBoundingClientRect();
+           var defaultView = root.ownerDocument.defaultView;
+@@ -913,7 +983,7 @@
+       // get the real render slots based on range data
+       // in-place patch strategy will try to reuse components as possible
+       // so those components that are reused will not trigger lifecycle mounted
+-      getRenderSlots: function getRenderSlots(h) {
++      getRenderSlots: function getRenderSlots(h, paddingStyle) {
+         var slots = [];
+         var _this$range = this.range,
+           start = _this$range.start,
+@@ -956,6 +1026,20 @@
+             console.warn("Cannot get the index '".concat(index, "' from data-sources."));
+           }
+         }
++
++        // table에 virtual list 적용시 앞 뒤에 영역잡기용 div 삽입
++        if(paddingStyle.wrapTag === 'tbody') {
++          // before
++          slots.unshift(h('div', {
++            style: { display: 'block !important', height: `${paddingStyle.padFront}px`},
++          }))
++          
++          //after
++          slots.push(h('div', {
++            style: { display: 'block !important', height: `${paddingStyle.padBehind}px`},
++          }))
++        }
++
+         return slots;
+       }
+     },
+@@ -963,8 +1047,10 @@
+     // https://vuejs.org/v2/guide/render-function.html#The-Data-Object-In-Depth
+     render: function render(h) {
+       var _this$$slots = this.$slots,
++        colgroup = _this$$slots.colgroup,
+         header = _this$$slots.header,
+-        footer = _this$$slots.footer;
++        footer = _this$$slots.footer,
++        tmparea = _this$$slots.tmparea;
+       var _this$range2 = this.range,
+         padFront = _this$range2.padFront,
+         padBehind = _this$range2.padBehind;
+@@ -977,6 +1063,9 @@
+         headerTag = this.headerTag,
+         headerClass = this.headerClass,
+         headerStyle = this.headerStyle,
++        tmpareaTag= this.tmpareaTag,
++        tmpareaClass = this.tmpareaClass,
++        tmpareaStyle = this.tmpareaStyle,
+         footerTag = this.footerTag,
+         footerClass = this.footerClass,
+         footerStyle = this.footerStyle;
+@@ -990,6 +1079,14 @@
+           '&scroll': !pageMode && this.onScroll
+         }
+       }, [
++      // colgroup slot
++      colgroup ? h(Slot, {
++        props: {
++          tag: 'colgroup',
++          event: EVENT_TYPE.SLOT,
++          uniqueKey: SLOT_TYPE.COLGROUP
++        }
++      }, colgroup) : null,
+       // header slot
+       header ? h(Slot, {
+         "class": headerClass,
+@@ -1007,7 +1104,17 @@
+           role: 'group'
+         },
+         style: wrapperStyle
+-      }, this.getRenderSlots(h)),
++      }, this.getRenderSlots(h, { wrapTag, padFront, padBehind })),
++      // empty slot
++      tmparea ? h(Slot, {
++        "class": tmpareaClass,
++        style: tmpareaStyle,
++        props: {
++          tag: tmpareaTag,
++          event: EVENT_TYPE.SLOT,
++          uniqueKey: SLOT_TYPE.TMPAREA
++        }
++      }, tmparea) : null,
+       // footer slot
+       footer ? h(Slot, {
+         "class": footerClass,

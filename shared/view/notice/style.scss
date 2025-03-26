@@ -1,0 +1,33 @@
+// 공지사항 상세
+.notice_detail {
+    width: 100%;
+    .notice_header {
+        padding: 20px;
+        border-top: 1px solid #6f6f6f;
+        border-bottom: 1px solid #c1c1c1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            font-size: 18px;
+        }
+
+        .date {
+            font-size: 15px;
+            color: #9f9f9f;
+        }
+    }
+
+    .content {
+        padding: 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #6f6f6f;
+        margin-bottom: 26px;
+    }
+
+    .notice_footer {
+        display: flex;
+        justify-content: center;
+    }
+}

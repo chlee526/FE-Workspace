@@ -1,0 +1,93 @@
+#container.page-pass {
+    flex: 0 0;
+    display: flex;
+    width: 100%;
+    padding: 0 !important;
+
+    > #content {
+        min-height: auto !important;
+        margin: auto;
+        vertical-align: middle;
+    }
+
+    .pass {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= var(--primary), endColorstr= var(--secondary), GradientType=1 ); /* IE6-9 */
+            overflow: hidden;
+        }
+
+        > .wrap {
+            width: 470px;
+            padding: 55px 30px 50px;
+            margin: 0 auto;
+            border-radius: 5px;
+            background: #ffffff;
+            box-sizing: border-box;
+            @include shadow(0, 2px, 4px, 0.05, 0, 0, 0);
+
+            > #page_title {
+                display: block;
+                position: relative;
+                padding: 0 0 29px 0;
+                color: $font_color_hl;
+                font-size: 2.167em;
+                line-height: 1;
+                text-align: center;
+            }
+
+            > .user_info {
+                display: block;
+                padding: 0 0 56px;
+                text-align: center;
+
+                > strong {
+                    color: $font_color_hl;
+                }
+            }
+
+            > .inputs {
+                position: relative;
+
+                > * {
+                    margin-top: 15px;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &.result {
+                        position: absolute;
+                        bottom: -2.1em;
+                        left: 0;
+                        color: #e65f5f;
+                    }
+                }
+            }
+
+            > .btns {
+                padding: 102px 0 0 0;
+            }
+        }
+
+        > .txts {
+            padding: 12px 0 0 0;
+
+            p {
+                padding: 2px 0;
+                color: $font_color_dm;
+                font-size: 0.917em;
+                line-height: 1;
+            }
+        }
+    }
+}

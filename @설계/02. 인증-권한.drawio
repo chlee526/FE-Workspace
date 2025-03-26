@@ -1,0 +1,161 @@
+<mxfile host="65bd71144e">
+    <diagram id="pOqud3Csru5kn6OA6R6e" name="페이지-1">
+        <mxGraphModel dx="1566" dy="2085" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="57" value="YES" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="51" target="80" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="NO" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="51" target="58" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="인증&lt;br&gt;(AccessToken)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="-610" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="YES" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="75" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="290" y="-770" as="targetPoint"/>
+                        <mxPoint x="180" y="-830" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="86" value="NO" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.506;entryY=0.92;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="54" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="180" y="-870" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="66" value="저장" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="54" target="65" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="54" target="56" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="40" y="-955"/>
+                            <mxPoint x="40" y="-325"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <UserObject label="로그인" tooltip="/shared/view/member/login" id="54">
+                    <mxCell style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" parent="1" vertex="1">
+                        <mxGeometry x="95" y="-980" width="170" height="50" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="70" style="edgeStyle=none;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="56" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="-337"/>
+                            <mxPoint x="70" y="-850"/>
+                        </Array>
+                        <mxPoint x="120" y="-850" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="페이지 이동" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" parent="1" vertex="1">
+                    <mxGeometry x="95" y="-350" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="YES" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="58" target="60" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="인증&lt;br&gt;(RefreshToken)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="-610" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="저장" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="60" target="65" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="720" y="-380"/>
+                            <mxPoint x="720" y="-840"/>
+                            <mxPoint x="490" y="-840"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=none;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="60" target="80" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="570" y="-540"/>
+                            <mxPoint x="180" y="-540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <UserObject label="토큰 갱신" tooltip="/shared/utils/request.js" id="60">
+                    <mxCell style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                        <mxGeometry x="540" y="-400" width="120" height="40" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="68" value="확인" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="65" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="-850" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="vueX" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="-1080" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <UserObject label="USER" tooltip="/shared/store/modules/user.js" id="65">
+                    <mxCell style="whiteSpace=wrap;html=1;fillColor=#33001A;" parent="64" vertex="1">
+                        <mxGeometry x="10" y="40" width="180" height="30" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="72" value="cookie" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="-1080" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="Token(AT, RT)" style="whiteSpace=wrap;html=1;fillColor=#33001A;" parent="72" vertex="1">
+                    <mxGeometry x="10" y="40" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="확인/저장/삭제" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="65" target="73" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="535" y="-940"/>
+                            <mxPoint x="665" y="-940"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="YES" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="75" target="51" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="NO" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="75" target="77" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="메뉴별 권한 여부" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="-750" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="77" target="51" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="600" y="-640"/>
+                            <mxPoint x="400" y="-640"/>
+                            <mxPoint x="180" y="-640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="77" value="권한 요청" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="-750" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="NO" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="80" target="56" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="YES" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="80" target="82" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="권한 정보 포함" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="-510" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;" parent="1" source="82" target="56" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="370" y="-380"/>
+                            <mxPoint x="180" y="-380"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" value="권한 정보 갱신" style="rhombus;whiteSpace=wrap;html=1;fillColor=#4D4D4D;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="-510" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <UserObject label="토큰 여부 확인" tooltip="/shared/router/permission.js" id="88">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#004C99;" parent="1" vertex="1">
+                        <mxGeometry x="120" y="-870" width="120" height="40" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

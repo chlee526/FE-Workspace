@@ -1,0 +1,14 @@
+{
+    "name": "@shared/prettier-config-rsn",
+    "version": "1.0.0",
+    "description": "Prettier config - RSN",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "GUNI",
+    "license": "ISC",
+    "dependencies": {
+        "prettier": "^2.4.1"
+    }
+}

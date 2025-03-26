@@ -1,0 +1,13 @@
+diff --git a/node_modules/vue-quill-editor/dist/vue-quill-editor.js b/node_modules/vue-quill-editor/dist/vue-quill-editor.js
+index 44ca11b..7d53dfe 100644
+--- a/node_modules/vue-quill-editor/dist/vue-quill-editor.js
++++ b/node_modules/vue-quill-editor/dist/vue-quill-editor.js
+@@ -5456,7 +5456,7 @@ var Scroll = function (_Parchment$Scroll) {
+       }, {});
+     }
+     // Some reason fixes composition issues with character languages in Windows/Chrome, Safari
+-    _this.domNode.addEventListener('DOMNodeInserted', function () {});
++    _this.domNode.addEventListener('MutationObserver', function () {});
+     _this.optimize();
+     _this.enable();
+     return _this;

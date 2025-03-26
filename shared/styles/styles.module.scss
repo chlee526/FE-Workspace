@@ -1,0 +1,143 @@
+// ■■■■  COLORS  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+// 기본
+$point_color: #52beba; // 포인트 색상
+$point_color_2: #fbd65b; // 포인트 색상 2
+
+// 그라디언트 컬러
+$gr_color_01: #7487e5;
+$gr_color_02: #52beba;
+
+// 바디 섹션
+$body_bg_color: #f6f6f6;
+$over_bg_color: #f0f0f0;
+
+// 분석대상/검색키워드/연관어
+$anal_keyword_color: #78a5ff; // 분석 대상
+$search_keyword_color: #999999; // 검색 키워드
+$relation_keyword_color: #eac223; // 연관어
+
+// 게시판
+$brd_color: #bcbcbc; // 기본
+$brd_color_dm: #e4e4e4; // 딤드
+$brd_color_hl: #767676; // 강조
+
+// 기본 폰트
+$font_color: #666666; // 컨텐츠 폰트 색상
+$font_color_dm: #999999; // 컨텐츠 Dims 폰트 색상
+$font_color_dm2: #cccccc; // 컨텐츠 Dims2 폰트 색상
+$font_color_hl: #333333; // 컨텐츠 Highlight 폰트 색상
+
+// 감성
+$senti_positive_color: #78b4dc;
+$senti_negative_color: #e25b5b;
+$senti_neutral_color: #a5a5a5;
+
+// 고급검색 분석대상
+$adv_keyword_1: #6e95e5;
+$adv_keyword_2: #6abbbb;
+$adv_keyword_3: #cbc975;
+
+// 컴포넌트
+$component_font_color: $font_color; // 컴포넌트 폰트 색상
+$component_font_color_hover: #484848; // 컴포넌트 폰트 - Over
+$component_font_color_active: #484848; // 컴포넌트 폰트 - Active
+$component_font_color_disabled: #afafaf; // 컴포넌트 폰트 - Disabled
+$component_bg_color: #ffffff; // 컴포넌트 배경
+$component_bg_color_over: #efefef; // 컴포넌트 배경 - Over
+$component_bg_color_active: #808080; // 컴포넌트 배경 - Active
+$component_bg_color_disabled: #d9d9d9; // 컴포넌트 배경 - Disabled
+$component_brd_color: #d4d4d4; // 컴포넌트 보더
+$component_brd_color_over: #808080; // 컴포넌트 보더 - Over
+$component_brd_color_active: #6a6a6a; // 컴포넌트 보더 - Active
+$component_brd_color_disabled: #c4c4c4; // 컴포넌트 보더 - Disabled
+
+// 게시판
+$board_brd_color: #e6e6e6;
+$board_brd_color_hover: #cecece;
+$board_brd_color_active: $point_color;
+$board_bg_color: #fcfcfc;
+$board_bg_color_hover: #f2f2f2;
+$board_bg_color_active: #dcf2f1;
+$board_th_bg_color: #f2f2f2;
+$board_th_bg_color_hover: #e4e4e4;
+$board_th_bg_color_active: #96d7d5;
+$board_bg_color_even: #fafafa;
+
+// ■■■■  Font  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+// Size
+$font_size: 13px;
+
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * Export to Javascript Variables
+   - js파일내에서 아래와 같이 import 하면 Object 형태로 export내용을 보냄
+     import sharedStyles from '@shared/styles/styles.module.scss';
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+:export {
+    // ■■■■  COLORS  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    // 기본
+    point_color: $point_color; // 포인트 색상
+    point_color_2: $point_color_2; // 포인트 색상 2
+
+    // 그라디언트 컬러
+    gr_color_01: $gr_color_01;
+    gr_color_02: $gr_color_02;
+
+    // 바디 섹션
+    body_bg_color: $body_bg_color;
+    over_bg_color: $over_bg_color;
+
+    // 분석대상/검색키워드/연관어
+    anal_keyword_color: $anal_keyword_color; // 분석 대상
+    search_keyword_color: $search_keyword_color; // 검색 키워드
+    relation_keyword_color: $relation_keyword_color; // 연관어
+
+    // 게시판
+    brd_color: $brd_color; // 기본
+    brd_color_dm: $brd_color_dm; // 딤드
+    brd_color_hl: $brd_color_hl; // 강조
+
+    // 기본 폰트
+    font_color: $font_color; // 컨텐츠 폰트 색상
+    font_color_dm: $font_color_dm; // 컨텐츠 Dims 폰트 색상
+    font_color_dm2: $font_color_dm2; // 컨텐츠 Dims2 폰트 색상
+    font_color_hl: $font_color_hl; // 컨텐츠 Highlight 폰트 색상
+
+    // 감성
+    senti_positive_color: $senti_positive_color;
+    senti_negative_color: $senti_negative_color;
+    senti_neutral_color: $senti_neutral_color;
+
+    // 고급검색 분석대상
+    adv_keyword_1: $adv_keyword_1;
+    adv_keyword_2: $adv_keyword_2;
+    adv_keyword_3: $adv_keyword_3;
+
+    // 컴포넌트
+    component_font_color: $component_font_color; // 컴포넌트 폰트 색상
+    component_font_color_hover: $component_font_color_hover; // 컴포넌트 폰트 - Over
+    component_font_color_active: $component_font_color_active; // 컴포넌트 폰트 - Active
+    component_font_color_disabled: $component_font_color_disabled; // 컴포넌트 폰트 - Disabled
+    component_bg_color: $component_bg_color; // 컴포넌트 배경
+    component_bg_color_over: $component_bg_color_over; // 컴포넌트 배경 - Over
+    component_bg_color_active: $component_bg_color_active; // 컴포넌트 배경 - Active
+    component_bg_color_disabled: $component_bg_color_disabled; // 컴포넌트 배경 - Disabled
+    component_brd_color: $component_brd_color; // 컴포넌트 보더
+    component_brd_color_over: $component_brd_color_over; // 컴포넌트 보더 - Over
+    component_brd_color_active: $component_brd_color_active; // 컴포넌트 보더 - Active
+    component_brd_color_disabled: $component_brd_color_disabled; // 컴포넌트 보더 - Disabled
+
+    // 게시판
+    board_brd_color: $board_brd_color;
+    board_brd_color_hover: $board_brd_color_hover;
+    board_brd_color_active: $board_brd_color_active;
+    board_bg_color: $board_bg_color;
+    board_bg_color_hover: $board_bg_color_hover;
+    board_bg_color_active: $board_bg_color_active;
+    board_th_bg_color: $board_th_bg_color;
+    board_th_bg_color_hover: $board_th_bg_color_hover;
+    board_th_bg_color_active: $board_th_bg_color_active;
+    board_bg_color_even: $board_bg_color_even;
+
+    // ■■■■  FONT  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    font_size: $font_size;
+}

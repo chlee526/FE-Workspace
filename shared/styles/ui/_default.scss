@@ -1,0 +1,157 @@
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    공용
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+// Invisible 처리
+.ui_invisible {
+    position: absolute !important;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+// 컨텐츠 포지셔닝
+.ui_al {
+    // 텍스트 정렬(좌)
+    text-align: left !important;
+}
+.ui_ac {
+    // 텍스트 정렬(중)
+    text-align: center !important;
+}
+.ui_ar {
+    // 텍스트 정렬(우)
+    text-align: right !important;
+}
+.ui_vt {
+    // 상하 정렬(상)
+    vertical-align: top !important;
+}
+.ui_vm {
+    // 상하 정렬(Baseline)
+    vertical-align: baseline !important;
+}
+.ui_vb {
+    // 상하 정렬(하)
+    vertical-align: bottom !important;
+}
+.ui-breakall-unset {
+    // 말줄임표 해제
+    word-break: break-all !important;
+    white-space: unset !important;
+}
+.ui-ellipsis {
+    // 말줄임표 적용
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+// No Data - 이미지 형태
+.ui_nodata {
+    background: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108.67 122.88'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill-rule:evenodd;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Eno-data%3C/title%3E%3Cpath class='cls-1' d='M25.14,53.37a2.77,2.77,0,0,0,0,5.54H45.25a2.77,2.77,0,0,0,0-5.54Zm60.48-36.9,6.66,6.69-8,8.14,8,8.14L85.61,46.1l-8-8.09-8,8.1L63,39.43l8-8.14-8-8.15,6.67-6.65,8,8.08,8-8.1ZM77.77,0A30.91,30.91,0,0,1,91,58.82v57.69a6.38,6.38,0,0,1-6.37,6.37H6.37A6.38,6.38,0,0,1,0,116.51V22.4A6.38,6.38,0,0,1,6.37,16h44.3A30.89,30.89,0,0,1,77.77,0Zm7.78,60.81A30.92,30.92,0,0,1,48.32,21.52H6.37a.9.9,0,0,0-.63.26.92.92,0,0,0-.26.63V116.5a.89.89,0,0,0,.89.89H84.65a.9.9,0,0,0,.63-.26.92.92,0,0,0,.26-.63V60.81ZM25.14,92.22a2.74,2.74,0,0,0,0,5.48H63.61a2.74,2.74,0,1,0,0-5.48Zm0-19.41a2.74,2.74,0,0,0,0,5.48H63.61a2.74,2.74,0,0,0,0-5.48Z' fill='rgba(0,0,0,0.2)'%3E%3C/path%3E%3C/svg%3E")
+        no-repeat center;
+    background-size: 80px auto;
+
+    &:before {
+        content: none !important;
+    }
+    &:after {
+        content: none !important;
+    }
+
+    * {
+        display: none;
+    }
+}
+
+// No Data - 텍스트형태
+.ui_no_data_txt {
+    position: relative;
+    padding: 0 0 0 18px;
+    color: $font_color_dm;
+    text-align: center;
+
+    &:before {
+        content: '\e045';
+        @include inlineBlock();
+        margin: 0 5px 0 0;
+        font-family: 'icomoon';
+        font-size: 16px;
+        vertical-align: top;
+    }
+}
+
+// 아이콘
+.ui_icon {
+    font-family: 'icomoon';
+}
+
+// 상태박스  ==>  Bedge로 변경
+.ui_status_box {
+    @include inlineBlock();
+    padding: 0 8px;
+    border-radius: 100px;
+    background: #ffffff;
+    line-height: 24px;
+
+    &.is-wide {
+        padding: 0 20px;
+    }
+
+    &.is-customColor {
+        border-color: var(--color) !important;
+        background-color: var(--color) !important;
+        color: #ffffff !important;
+    }
+}
+
+/************************************************************
+    Fluc
+    - ▲,▼ 아이콘을 포함한 증감
+*************************************************************/
+.ui_fluc {
+    @include inlineBlock();
+    position: relative;
+    color: #808080;
+    line-height: 1;
+
+    > * {
+        &.is-up {
+            &:before {
+                content: '\e040';
+                font-family: 'icomoon';
+                color: #e14c26;
+            }
+        }
+        &.is-down {
+            &:before {
+                content: '\e041';
+                font-family: 'icomoon';
+                color: #5d80e1;
+            }
+        }
+        &.is-new {
+            color: #ff0000;
+            font-size: 11px;
+        }
+    }
+
+    &.is-box {
+        padding: 2px 5px;
+        border-radius: 50px;
+        background: #ffffff;
+
+        &.is-dims {
+            background: #f1f1f1;
+        }
+    }
+}
+
+// 키워드 공백(v)
+.ui_keyword_space {
+    font-size: 0.8em;
+    vertical-align: super;
+    @include opacity(0.5);
+}

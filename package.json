@@ -1,0 +1,33 @@
+{
+    "name": "workspace",
+    "version": "1.1.0",
+    "description": "Team FE. Vue project Workspaces",
+    "main": "index.js",
+    "scripts": {
+        "bp:dashboard": "npm run dev -w @boilerplate/dashboard",
+        "bp:admin": "npm run dev -w @boilerplate/admin",
+        "demo:dashboard": "npm run dev -w @demo/dashboard",
+        "demo:admin": "npm run dev -w @boilerplate/dashboard",
+        "postinstall": "patch-package"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "shared/*",
+        "boilerplate\\dashboard",
+        "boilerplate\\admin",
+        "demo\\dashboard",
+        "demo\\admin",
+        "projects/*"
+    ],
+    "dependencies": {
+        "jodit": "^4.2.47",
+        "patch-package": "^7.0.2"
+    },
+    "devDependencies": {
+        "@shared/eslint-config-rsn": "file:./shared/config/eslint-config-rsn",
+        "@shared/prettier-config-rsn": "file:./shared/config/prettier-config-rsn",
+        "eslint-plugin-import": "^2.28.1"
+    }
+}

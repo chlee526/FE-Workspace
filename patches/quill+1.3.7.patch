@@ -1,0 +1,26 @@
+diff --git a/node_modules/quill/dist/quill.core.js b/node_modules/quill/dist/quill.core.js
+index 160ef14..c476727 100644
+--- a/node_modules/quill/dist/quill.core.js
++++ b/node_modules/quill/dist/quill.core.js
+@@ -4234,7 +4234,7 @@ var Scroll = function (_Parchment$Scroll) {
+       }, {});
+     }
+     // Some reason fixes composition issues with character languages in Windows/Chrome, Safari
+-    _this.domNode.addEventListener('DOMNodeInserted', function () {});
++    _this.domNode.addEventListener('MutationObserver', function () {});
+     _this.optimize();
+     _this.enable();
+     return _this;
+diff --git a/node_modules/quill/dist/quill.js b/node_modules/quill/dist/quill.js
+index 811b3d0..0e5e50d 100644
+--- a/node_modules/quill/dist/quill.js
++++ b/node_modules/quill/dist/quill.js
+@@ -4234,7 +4234,7 @@ var Scroll = function (_Parchment$Scroll) {
+       }, {});
+     }
+     // Some reason fixes composition issues with character languages in Windows/Chrome, Safari
+-    _this.domNode.addEventListener('DOMNodeInserted', function () {});
++    _this.domNode.addEventListener('MutationObserver', function () {});
+     _this.optimize();
+     _this.enable();
+     return _this;

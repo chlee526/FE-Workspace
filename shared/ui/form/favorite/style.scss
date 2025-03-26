@@ -1,0 +1,62 @@
+// 북마크(관심등록/해제)
+.dcp_favorites {
+    @include inlineBlock();
+
+    input {
+        @include customComponent();
+        cursor: pointer;
+
+        &:not(:disabled):hover + label {
+            color: #808080;
+        }
+
+        &:checked + label {
+            color: #ffb433;
+
+            &:after {
+                animation: favoriteOn 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+            }
+        }
+
+        &:not(:disabled):checked:hover + label {
+            color: #ef9700;
+        }
+
+        &:disabled + label {
+            @include opacity(0.5);
+            // pointer-events: none;
+        }
+    }
+
+    label {
+        display: block;
+        position: relative;
+        padding: 5px;
+        font-family: 'icomoon';
+        color: #cccccc;
+        cursor: pointer;
+        @include transition();
+
+        &:after {
+            content: '\e030';
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px;
+            font-family: 'icomoon';
+            color: #ef9700;
+            @include opacity(0);
+        }
+    }
+
+    @keyframes favoriteOn {
+        from {
+            transform: scale(2.4);
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}

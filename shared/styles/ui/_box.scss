@@ -1,0 +1,534 @@
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    박스 스타일링
+    - 0,1,2,3,4 Depth
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+// Box
+.ui_box {
+    position: relative;
+    padding: 12px 20px 20px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-sizing: border-box;
+    @include shadow(0, 2px, 4px, 0.05, 0, 0, 0);
+
+    // 헤더 영역
+    > .header {
+        position: relative;
+        padding: 0 0 12px 0;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -20px;
+            width: calc(100% + 40px);
+            height: 1px;
+            background: #eeeeee;
+        }
+
+        &:empty {
+            padding: 0 !important;
+        }
+
+        > .wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6 {
+                display: flex;
+                flex: 1 1 auto;
+                min-width: 0;
+                position: relative;
+                letter-spacing: -1px;
+                line-height: 30px;
+
+                > span,
+                > strong {
+                    display: flex;
+                    flex: 0 1 auto;
+                    align-items: center;
+                    min-width: 0;
+                    padding-right: 5px !important;
+                    font-size: 1.538em;
+                    margin: 0 8px 0 0;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                    > * {
+                        flex: 0 1 auto;
+                        max-width: 200px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+
+                        &:not(:first-child) {
+                            position: relative;
+                            padding-left: 11px;
+                            margin-left: 10px;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                width: 1px;
+                                height: 1em;
+                                margin: -0.5em 0 0 0;
+                                border-left: 2px dotted $component_brd_color;
+                            }
+                        }
+                    }
+                }
+
+                @at-root .sub_title {
+                    display: flex;
+                    flex: 0 1 auto;
+                    flex-wrap: nowrap;
+                    min-width: 0;
+                    color: $font_color;
+                    font-size: 12px;
+                    line-height: 22px;
+
+                    > * {
+                        flex: 0 1 auto;
+                        align-self: center;
+                        padding: 0 8px;
+                        margin: 1px 4px 1px 0;
+                        border: 1px solid $component_brd_color;
+                        border-radius: 100px;
+                        background: #fff;
+                        font-weight: normal;
+                        line-height: 20px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+
+                        > * {
+                            // display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+
+                        &.is-searchInput {
+                            border-color: $search_keyword_color;
+                            background: $search_keyword_color;
+                            color: #ffffff;
+                        }
+
+                        &.is-customColor {
+                            border-color: var(--color);
+                            background-color: var(--color);
+                            color: #ffffff;
+                        }
+
+                        &.ui_bedge {
+                            line-height: 20px;
+                        }
+                    }
+                    > button {
+                        position: relative;
+                        cursor: pointer;
+                        @include transition();
+                        overflow: visible;
+
+                        &:after {
+                            content: '\e019';
+                            position: absolute;
+                            top: -8px;
+                            right: -3px;
+                            transform: scale(0.8);
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            background: $font_color_dm;
+                            font-family: 'icomoon';
+                            color: #fff;
+                            font-size: 10px;
+                            line-height: 16px;
+                            text-align: center;
+                            @include opacity(0);
+                            @include transition();
+                        }
+
+                        &:hover {
+                            &:after {
+                                right: -6px;
+                                @include opacity(1);
+                            }
+                        }
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: -30px;
+                    width: 20px;
+                    height: 7px;
+                    margin: -3px 0 0 0;
+                    border-radius: 4px;
+                    background: var(--tertiary);
+
+                    // @at-root .is-lnb & {
+                    //     background: $gr_color_01;
+                    // }
+
+                    @at-root .is-admin & {
+                        content: none;
+                    }
+                }
+            }
+
+            > .rc_wrap,
+            > button.close {
+                display: flex;
+                // flex: 0 0 auto;
+                flex-wrap: nowrap;
+                padding-left: 30px;
+
+                > * {
+                    margin: 0 5px 0 0;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // 컨텐츠 영역
+    > .content,
+    > div > .content {
+        position: relative;
+        padding: 20px 0 0;
+
+        > hr,
+        > .wrap > hr {
+            display: block;
+            height: 1px;
+            margin: 20px 0;
+            border: none;
+            border-bottom: 1px dashed #e6e6e6;
+            background: none;
+            box-sizing: border-box;
+        }
+
+        &:first-child {
+            padding-top: 8px;
+        }
+    }
+
+    > .footer {
+        padding: 20px;
+        margin: 20px -20px -20px;
+        border-top: 1px solid #e9e9e9;
+        border-radius: 0 0 4px 4px;
+        background: #f9f9f9;
+    }
+
+    // 0 Depth 박스
+    &.is-0dp {
+        padding: 0;
+        margin-top: 0;
+        background: transparent;
+        @include shadow(0, 0, 0, 0);
+
+        > .header {
+            padding: 0 0 12px 0;
+
+            &:after {
+                content: none;
+            }
+
+            > .wrap {
+                > h3,
+                > h4,
+                > h5,
+                > h6 {
+                    padding-left: 20px;
+                    line-height: 24px;
+
+                    &:before {
+                        left: -10px;
+                        height: 12px;
+                        margin: -6px 0 0 0;
+                        border-radius: 100px;
+                    }
+
+                    > span {
+                        font-size: 24px;
+                    }
+                }
+
+                > .rc_wrap {
+                    top: 0;
+                    right: 0;
+                    margin-top: 0;
+                }
+            }
+        }
+
+        > .ui_function,
+        > div > .ui_function {
+            padding: 8px;
+
+            & + .content {
+                padding: 10px 0 0 0;
+            }
+        }
+
+        > .content {
+            padding: 0;
+        }
+    }
+
+    // 2 Depth 박스
+    &.is-2dp {
+        padding: 0;
+        margin-top: 0;
+        background: transparent;
+        @include shadow(0, 0, 0, 0);
+
+        > .header {
+            padding: 0 0 12px 0;
+
+            &:after {
+                content: none;
+            }
+
+            > .wrap {
+                > h3,
+                > h4,
+                > h5,
+                > h6 {
+                    line-height: 24px;
+
+                    &:before {
+                        content: none;
+                    }
+
+                    > span {
+                        font-size: 1.308em;
+                    }
+                }
+
+                > .rc_wrap {
+                    top: 0;
+                    right: 0;
+                    margin-top: 0;
+                }
+            }
+        }
+
+        > .ui_function,
+        > div > .ui_function {
+            padding: 8px;
+            line-height: 24px;
+
+            & + .content {
+                padding: 10px 0 0 0;
+            }
+        }
+
+        > .content {
+            padding: 0;
+        }
+    }
+
+    // 3 Depth 박스
+    &.is-3dp {
+        padding: 10px;
+        margin-top: 0;
+        border-radius: 5px;
+        border-bottom: none;
+        background: rgba(0, 0, 0, 0.03);
+        @include shadow(0, 0, 0, 0);
+
+        > .header {
+            padding: 0 0 10px;
+            line-height: 24px;
+
+            &:after {
+                content: none;
+            }
+
+            > .wrap {
+                > h3,
+                > h4,
+                > h5,
+                > h6 {
+                    line-height: 24px;
+
+                    &:before {
+                        content: none;
+                    }
+
+                    > strong,
+                    > span {
+                        font-size: 1.154em;
+                    }
+                }
+
+                > .rc_wrap {
+                    top: 0;
+                    right: 0;
+                    margin-top: 0;
+                }
+            }
+        }
+
+        > .content,
+        > div > .content {
+            padding: 0;
+        }
+
+        > .ui_function,
+        > div > .content {
+            padding: 5px;
+            line-height: 24px;
+
+            & + .content {
+                padding: 10px 0 0 0;
+            }
+        }
+    }
+
+    // 검색 제외 박스
+    &.is-expt {
+        > .header {
+            > h3,
+            > h4,
+            > h5,
+            > h6 {
+                &:before {
+                    background: #b5b5b5;
+                }
+            }
+        }
+    }
+
+    // 팝업
+    &.popup_item {
+        > .header {
+            > h2 {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+// Function Area(필터링, 기능등이 들어가는 영역)
+// 기능 영역
+.ui_function {
+    display: flex;
+    padding: 8px 20px;
+    margin: 0 -20px;
+    background: rgba(0, 0, 0, 0.03);
+    line-height: 30px;
+
+    > hr {
+        flex: 0 0 100%;
+        height: 0;
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        margin: 0.4em 0;
+    }
+
+    > .rc {
+        margin-left: auto;
+        justify-content: flex-end;
+    }
+
+    &.is-box {
+        padding: 6px;
+        margin: 0;
+        border: none;
+        border-radius: 5px;
+    }
+
+    &.is-box-large {
+        @extend .is-box;
+        padding: 15px;
+    }
+
+    &.is-fixed {
+        position: sticky;
+    }
+
+    > * {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 4px;
+        // margin: -2px 0 !important;
+        // @include clearBoth();
+
+        > hr {
+            width: 1px;
+            height: 30px;
+            border: none;
+            margin: 0 8px 0 0 !important;
+            background: #dbdbdb;
+        }
+
+        > * {
+            // float: left;
+            align-self: center;
+            margin-right: 6px !important;
+            margin-left: 0 !important;
+            vertical-align: top;
+
+            // &.dcp_radios {
+            //     margin: 0 10px 0 4px !important;
+            // }
+
+            & + hr {
+                margin: 0 8px 0 2px !important;
+            }
+
+            &.is-small {
+                margin-right: 6px !important;
+
+                & + hr {
+                    height: 22px;
+                    margin: 1px 8px 0 2px !important;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
+        }
+
+        > .grp {
+            display: flex;
+            gap: 4px;
+
+            > * {
+                align-self: center;
+            }
+
+            > strong {
+                font-weight: normal;
+            }
+        }
+    }
+
+    @at-root .ui_box > .content > & {
+        margin-bottom: 20px;
+    }
+    @at-root .popup_item & {
+        margin: 0;
+    }
+}

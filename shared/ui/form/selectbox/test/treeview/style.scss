@@ -1,0 +1,241 @@
+@import url(../style.scss);
+
+.select-list-wrap {
+    ::v-deep {
+        .ui-tree-view {
+            > .select-box-treeview-search {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                gap: 0;
+                background-color: #ffffff;
+
+                &.is-more-then-10 {
+                    gap: 4px;
+
+                    .is-header {
+                        padding: 4px 8px;
+                        border-top: 1px solid #ededed;
+                        background-color: #f7f7f7;
+
+                        .tops {
+                            padding: 4px 0;
+                        }
+                    }
+                }
+
+                .input {
+                    input {
+                        border: none;
+                        border-radius: 4px 4px 0 0;
+                        border-bottom: 1px solid #ededed;
+                        background: #f5f5f5;
+                        line-height: 22px;
+                    }
+
+                    .search {
+                        button {
+                            border-radius: 0 4px 0 0;
+                        }
+                    }
+                }
+
+                .is-header {
+                    padding: 4px 3px;
+                    border-bottom: 1px solid #ededed;
+                    background-color: #ffffff;
+
+                    .tops {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                    > .select-virtual-list {
+                        position: relative;
+                        height: 110px;
+                        padding: 2px 0;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+
+                        > div[role='group'] {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1px;
+                            width: 100%;
+
+                            &:empty {
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 3px;
+                                height: 110px;
+
+                                &:before {
+                                    content: '\e045';
+                                    font-family: 'icomoon';
+                                    color: #999999;
+                                }
+                                &:after {
+                                    content: '결과없음';
+                                    line-height: 22px;
+                                    color: #999999;
+                                }
+                            }
+
+                            .select-item {
+                                display: block;
+                                position: relative;
+                                width: calc(100% - 6px);
+                                padding: 4px;
+                                border-radius: 4px;
+                                background-color: #808080;
+                                box-sizing: border-box;
+                                color: #ffffff;
+                                text-align: left;
+                                line-height: 16px;
+                                user-select: none;
+                                @include transition();
+
+                                &::after {
+                                    content: '\e019';
+                                    position: absolute;
+                                    top: 2px;
+                                    right: -6px;
+                                    transform: scale(0.8);
+                                    width: 16px;
+                                    height: 16px;
+                                    border: 1px solid #999999;
+                                    border-radius: 50%;
+                                    background: #ffffff;
+                                    font-family: 'icomoon';
+                                    color: #666666;
+                                    font-size: 10px;
+                                    line-height: 16px;
+                                    text-align: center;
+                                    @include opacity(0);
+                                    @include transition();
+                                }
+
+                                .icon {
+                                    font-family: 'icomoon';
+                                    &.is-before {
+                                        padding-right: 5px !important;
+                                    }
+                                    &.is-after {
+                                        padding-left: 5px !important;
+                                    }
+                                }
+
+                                &:hover {
+                                    &::after {
+                                        right: -8px;
+                                        @include opacity(1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .wrap {
+                max-height: 300px;
+                padding: 3px;
+
+                .list-wrap {
+                    .tree-node {
+                        gap: 0;
+                        border-radius: 4px;
+                        border: none;
+                        // overflow: hidden;
+                        background: none;
+                        user-select: none;
+
+                        &:hover {
+                            &::before {
+                                // background: none;
+                            }
+                            .custom_wrap {
+                                .bg {
+                                    // border-radius: 4px;
+                                    // background: rgba(0, 0, 0, 0.03);
+                                }
+                                .node-name {
+                                    // background: rgba(0, 0, 0, 0.03);
+                                    // color: #ffffff;
+                                }
+                                .input {
+                                    // color: #ffffff;
+                                }
+                            }
+                        }
+
+                        &.node-l1 {
+                            margin-bottom: 3px 0;
+                        }
+
+                        &.is-expand {
+                            border: none;
+                            background: none;
+                        }
+
+                        &.is-active {
+                            .expand {
+                                &::before {
+                                    opacity: 1;
+                                }
+                            }
+
+                            .custom_wrap {
+                                .node-name {
+                                    border-radius: 4px;
+                                    background-color: #808080;
+                                    color: #ffffff;
+                                }
+                                .input {
+                                    color: #ffffff;
+                                }
+                            }
+                        }
+                        .expand {
+                            padding: 1.5px 0;
+                        }
+
+                        .not-expand {
+                            padding: 1.5px 0;
+                        }
+
+                        .custom_wrap {
+                            padding: 1.5px 0 1.5px;
+
+                            .node-name {
+                                flex: none;
+                                padding: 0 6px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.is-multi {
+                .wrap {
+                    max-height: 240px;
+                }
+            }
+
+            > .nodata-wrap {
+                padding: 6px 3px;
+            }
+        }
+    }
+
+    ::v-deep .is-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 5px;
+        background-color: #f1f1f1;
+        user-select: none;
+    }
+}

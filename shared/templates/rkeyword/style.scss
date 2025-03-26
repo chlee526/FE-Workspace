@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+.tmpl_rk {
+    position: relative;
+
+    > .content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 0 !important;
+
+        .ui_bedge {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    > .ui_function {
+        & + .content {
+            .ui_box.is-3dp {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    .rk_view_type {
+        display: flex;
+        justify-content: flex-end;
+        // margin-bottom: 5px;
+    }
+
+    // 상세설정
+    .details {
+        display: flex;
+        position: relative;
+
+        > .btn_detail {
+            align-items: center;
+            border-bottom: 1px solid transparent;
+            font-size: 11px;
+            line-height: 16px;
+            @include transition();
+
+            .icon {
+                padding-right: 3px;
+                font-family: 'icomoon';
+            }
+
+            &:hover,
+            &.is-active {
+                border-bottom: 1px solid $component_brd_color_active;
+            }
+        }
+
+        // 상세 속성 설정
+        .detail_set {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            z-index: 5;
+
+            > .wrap {
+                display: flex;
+                min-width: 400px;
+                max-height: 90%;
+                flex-direction: column;
+                position: relative;
+                border-radius: 4px;
+                border: 1px solid $component_brd_color;
+                background: #ffffff;
+                @include shadow(0, 1px, 5px, 0.15, 0, 0, 0);
+                // overflow: hidden;
+
+                > .arrow {
+                    position: absolute;
+                    top: -11px;
+                    right: 50px;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        @include triangle('top', $component_brd_color, 24px, 11px);
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 1px;
+                        left: 1px;
+                        @include triangle('top', #ffffff, 22px, 11px);
+                    }
+                }
+
+                > ul {
+                    display: flex;
+                    padding: 20px 10px;
+                    line-height: 1;
+
+                    > li {
+                        padding: 0 15px;
+                        border-right: 1px dashed #e5e5e5;
+
+                        &:last-child {
+                            border-right: none;
+                        }
+
+                        > ul {
+                            padding-top: 20px;
+
+                            > li {
+                                padding: 0 0 10px;
+
+                                &:last-child {
+                                    padding-bottom: 0;
+                                }
+                            }
+
+                            ul {
+                                padding: 5px 0;
+
+                                li {
+                                    position: relative;
+                                    padding: 0 0 5px 20px;
+
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 10px;
+                                        left: 10px;
+                                        width: 3px;
+                                        height: 3px;
+                                        background: #d1d1d1;
+                                    }
+
+                                    &:last-child {
+                                        padding-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .dcp.checkbox {
+                        padding: 0;
+                    }
+                }
+
+                > .footer {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    border-radius: 0 0 4px 4px;
+                    background: #f7f7f7;
+                    text-align: center;
+
+                    .rc {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    @at-root .ui_box.is-3dp > & {
+        .ui_box.is-3dp {
+            background: #efefef;
+        }
+    }
+}

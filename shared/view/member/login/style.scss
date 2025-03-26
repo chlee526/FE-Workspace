@@ -1,0 +1,95 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+#container.page-login {
+    flex: 0 0;
+    display: flex;
+    width: 100%;
+    padding: 0 !important;
+
+    > #content {
+        min-height: auto !important;
+        margin: auto;
+        vertical-align: middle;
+    }
+
+    .login {
+        position: relative;
+        padding: 45px 0 0 0;
+
+        &:before {
+            content: '\e044';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            overflow: hidden;
+            font-family: 'icomoon';
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: normal;
+            line-height: 90px;
+            text-align: center;
+        }
+
+        > .wrap {
+            width: 470px;
+            padding: 75px 30px 50px;
+            margin: 0 auto;
+            border-radius: 5px;
+            background: #ffffff;
+            box-sizing: border-box;
+            @include shadow(0, 2px, 4px, 0.05, 0, 0, 0);
+
+            > #page_title {
+                display: block;
+                position: relative;
+                padding: 0 0 60px 0;
+                color: $font_color_hl;
+                font-size: 3em;
+                line-height: 1.3em;
+                text-align: center;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 19px;
+                    left: 50%;
+                    width: 42px;
+                    height: 6px;
+                    margin: 0 0 0 -21px;
+                    border-radius: 5px;
+                    background: #e2e2e2;
+                }
+            }
+
+            > .inputs {
+                > * {
+                    > .title {
+                        display: block;
+                        padding: 15px 0 8px 0;
+                        color: $font_color_dm;
+                        font-size: 1.333em;
+                        line-height: 1;
+                    }
+
+                    &.result {
+                        height: 15px;
+                        padding: 20px 0 0 0;
+                        color: #e65f5f;
+                        line-height: 1em;
+                    }
+                }
+            }
+
+            > .btns {
+                padding: 8px 0 0 0;
+            }
+        }
+    }
+}

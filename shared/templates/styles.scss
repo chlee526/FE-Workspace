@@ -1,0 +1,20 @@
+// 성별/연령별 검색어 비교
+@import './age_rank_table/style.scss';
+
+// 인기 검색어 순위 변화
+@import './hot_keyword_rank/style.scss';
+
+// 라이프사이클(4zone 워드 클라우드/성별/연령)
+@import './inc_genderage/style.scss';
+
+// 연관키워드
+@import './rkeyword/style.scss';
+
+// 분석 대상별 점유율
+@import './share_comparison/style.scss';
+
+// 정보량
+@import './volume/style.scss';
+
+// 분류체계 선택
+@import './attr_selector/style.scss';

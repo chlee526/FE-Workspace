@@ -1,0 +1,289 @@
+.ui_list {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+
+    &[disabled] {
+        border: 1px solid $component_brd_color_disabled !important;
+        background: $component_bg_color_disabled !important;
+        color: $component_font_color_disabled !important;
+    }
+
+    > .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        > * {
+            position: relative;
+            width: 100%;
+            text-align: left;
+
+            &[disabled] {
+                pointer-events: none;
+            }
+
+            // 삭제
+            .btn_list_del {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 100%;
+                border-radius: 0 4px 4px 0;
+                overflow: hidden;
+                text-align: left;
+                text-indent: -9999px;
+                @include opacity(0);
+                @include transition(0.12, 0);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    @include backgroundAlpha(#666, 1);
+                }
+
+                &:after {
+                    content: '\e019';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 16px;
+                    height: 16px;
+                    margin: -8px 0 0 -8px;
+                    font-family: 'icomoon';
+                    color: #fff;
+                    font-size: 10px;
+                    line-height: 16px;
+                    text-align: center;
+                    text-indent: 0;
+                }
+            }
+
+            &:hover {
+                .btn_list_del {
+                    @include transition(0.12, 0.3);
+                }
+            }
+
+            // 기본 아이템
+            &.item {
+                padding: 6px 10px;
+                border: 1px solid $component_brd_color;
+                border-radius: 5px;
+                box-sizing: border-box;
+                background: #ffffff;
+                color: $font_color;
+                line-height: 16px;
+                vertical-align: top;
+                outline: none;
+                @include transition(0.2, 0, (background-color, border-color, border-radius, color));
+
+                &[disabled] {
+                    border: 1px solid $component_brd_color_disabled !important;
+                    background: $component_bg_color_disabled !important;
+                    color: $component_font_color_disabled !important;
+                }
+
+                &:not(.sortable-chosen):not(.is-dragging):hover {
+                    .btn_list_del {
+                        width: 22px;
+                        @include opacity(1);
+                        @include transition(0.12, 0.5);
+                    }
+                }
+
+                &.is-xsmall {
+                    height: 20px;
+                    padding: 1px 5px;
+                    line-height: 18px;
+                }
+                &.is-small {
+                    height: 24px;
+                    padding: 3px 6px;
+                }
+                &.is-large {
+                    height: 36px;
+                    padding: 9px 14px;
+                    font-size: 1.167em;
+                }
+                &.is-xlarge {
+                    height: 50px;
+                    padding: 16px 20px;
+                    font-size: 1.333em;
+                }
+            }
+
+            // FilterGroup
+            &.ui-filter-grp:not(.ui-sortable-helper) {
+                > * {
+                    &:hover {
+                        .btn_list_del {
+                            width: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 버추얼 사용
+    &.is-virtual {
+        overflow-y: visible;
+
+        > .wrap {
+            gap: 0;
+            height: 100%;
+
+            .virtual-list {
+                overflow-y: auto;
+                max-height: 100%;
+
+                > div[role='group'] {
+                    // 기본 아이템
+                    .list-item {
+                        padding: 2px 0;
+
+                        .item {
+                            position: relative;
+                            padding: 6px 10px;
+                            border: 1px solid $component_brd_color;
+                            border-radius: 5px;
+                            box-sizing: border-box;
+                            background: #ffffff;
+                            color: $font_color;
+                            line-height: 16px;
+                            vertical-align: top;
+                            outline: none;
+                            user-select: none;
+                            @include transition(0.2, 0, (background-color, border-color, border-radius, color));
+
+                            &[disabled] {
+                                border: 1px solid $component_brd_color_disabled !important;
+                                background: $component_bg_color_disabled !important;
+                                color: $component_font_color_disabled !important;
+                            }
+
+                            &:not(.is-drag-item):hover {
+                                .btn_list_del {
+                                    width: 22px;
+                                    // @include opacity(1);
+                                    // @include transition(0.12, 0.5);
+                                }
+                            }
+
+                            &.is-xsmall {
+                                height: 20px;
+                                padding: 1px 5px;
+                                line-height: 18px;
+                            }
+                            &.is-small {
+                                height: 24px;
+                                padding: 3px 6px;
+                            }
+                            &.is-large {
+                                height: 36px;
+                                padding: 9px 14px;
+                                font-size: 1.167em;
+                            }
+                            &.is-xlarge {
+                                height: 50px;
+                                padding: 16px 20px;
+                                font-size: 1.333em;
+                            }
+                        }
+                    }
+
+                    // 컴포넌트 아이템
+                    .comp-item {
+                        padding: 2px 0;
+                        user-select: none;
+
+                        > .ui-filter-grp {
+                            > * {
+                                &:hover {
+                                    .btn_list_del {
+                                        width: 22px;
+                                        @include opacity(1);
+                                        // @include transition(0.12, 0.5);
+                                        // @include transition(0, 0, 'background');
+                                    }
+                                }
+                            }
+                        }
+
+                        // 삭제
+                        .btn_list_del {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            width: 0;
+                            height: 100%;
+                            border-radius: 0 4px 4px 0;
+                            overflow: hidden;
+                            text-align: left;
+                            text-indent: -9999px;
+                            @include opacity(0);
+                            // @include transition(0.12, 0);
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                @include backgroundAlpha(#666, 1);
+                            }
+
+                            &:after {
+                                content: '\e019';
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 16px;
+                                height: 16px;
+                                margin: -8px 0 0 -8px;
+                                font-family: 'icomoon';
+                                color: #fff;
+                                font-size: 10px;
+                                line-height: 16px;
+                                text-align: center;
+                                text-indent: 0;
+                            }
+
+                            &:hover {
+                                @include transition(0.12, 0.5);
+                            }
+                        }
+                    }
+                    .ui-filter-grp {
+                        display: block;
+                    }
+
+                    .ui_btn {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn_add {
+        width: 100%;
+        margin-top: 2px;
+        background: #999;
+        color: #fff;
+
+        &:before {
+            content: none;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.popup_container {
+    .popup_item {
+        > .header,
+        > .wrap,
+        > .footer {
+            width: 90%;
+        }
+
+        // 관련 정보
+        // &.popup_rel_info {
+        //     > .header,
+        //     > .wrap,
+        //     > .footer {
+        //         width: 90%;
+        //         max-width: 1300px;
+        //     }
+
+        //     //width: 90%;
+        //     //max-width: 1000px;
+        // }
+    }
+}

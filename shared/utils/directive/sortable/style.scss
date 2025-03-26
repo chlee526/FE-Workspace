@@ -1,0 +1,37 @@
+.is-drag-item {
+    opacity: 0.3;
+}
+
+.is-dragging-before {
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 2px;
+        background: #767676;
+        z-index: 1;
+    }
+}
+
+.is-dragging-after {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(50%);
+        width: 100%;
+        height: 2px;
+        background: #767676;
+        z-index: 1;
+    }
+}

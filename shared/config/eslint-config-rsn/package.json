@@ -1,0 +1,17 @@
+{
+    "name": "@shared/eslint-config-rsn",
+    "version": "1.0.0",
+    "description": "ESLint config - RSN",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "GUNI",
+    "license": "ISC",
+    "dependencies": {
+        "eslint": "7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-vue": "^8.0.3"
+    }
+}

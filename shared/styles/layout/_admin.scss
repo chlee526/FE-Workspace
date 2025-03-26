@@ -1,0 +1,130 @@
+#wrap.is-admin {
+    #container {
+        #content {
+            > .wrap {
+                padding-bottom: 50px;
+
+                // 높이 100%사용 컨텐츠
+                &.is-hgt100 {
+                    display: flex;
+                    flex: 1 1;
+
+                    > .contents {
+                        display: flex;
+                        flex: 1 1;
+
+                        > .wrap {
+                            display: flex;
+                            flex: 1 1;
+
+                            > * {
+                                flex: 1 1;
+                            }
+                        }
+                    }
+                }
+
+                .contents {
+                    .ui_row {
+                        max-width: none;
+                        padding: 0;
+                        .ui_col {
+                            .ui_box {
+                                .ui_function {
+                                    background-color: #f7f7f7;
+                                }
+                                .content {
+                                    position: static;
+
+                                    .ui_brd > .wrap {
+                                        overflow: unset;
+                                        position: static;
+
+                                        > table {
+                                            > tbody {
+                                                > tr {
+                                                    > td {
+                                                        &:hover {
+                                                            a {
+                                                                > span {
+                                                                    text-decoration: underline;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .contents:has(.ui_function.is-fixed) {
+                    position: static;
+
+                    .ui_row {
+                        position: static;
+                        .ui_col {
+                            position: static;
+                            .ui_box {
+                                .ui_function {
+                                    &.is-fixed {
+                                        flex-wrap: wrap;
+                                        position: sticky;
+                                        // 헤더 높이 40px
+                                        top: 40px;
+                                        z-index: 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.page-error {
+            #content {
+                display: block;
+            }
+        }
+
+        &:last-child {
+            > #content {
+                > .wrap {
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+    &.is-lnb {
+        #container {
+            #content {
+                .contents:has(.ui_function.is-fixed) {
+                    .ui_row {
+                        .ui_col {
+                            .ui_box {
+                                .ui_function {
+                                    &.is-fixed {
+                                        flex-wrap: wrap;
+                                        position: sticky;
+                                        // 헤더 높이 제외
+                                        top: 0;
+                                        z-index: 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > aside {
+                    top: 0;
+                    height: 100vh;
+                }
+            }
+        }
+    }
+}

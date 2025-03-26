@@ -1,0 +1,59 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+.helperBtn {
+    position: fixed;
+    top: 60px;
+    right: 0 !important;
+    margin-right: 0;
+    color: #fff;
+    z-index: 3;
+    @include transition(0.18, 0, (opacity, margin));
+
+    &.is-hide {
+        margin-right: -90px;
+        @include opacity(0);
+    }
+
+    > a {
+        display: flex;
+        width: 32px;
+        flex-wrap: nowrap;
+        align-items: center;
+        position: relative;
+        padding: 0.8em 0.4em;
+        border-radius: 5px 0 0 5px;
+        background: #666;
+        background: $gr_color_02;
+        box-sizing: border-box;
+        @include shadow(0, 0, 3px, 0.3, 0, 0, 0);
+        @include transition(0.2);
+
+        &:hover {
+            width: 80px;
+
+            > span {
+                transform: translateX(0);
+            }
+        }
+
+        > * {
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        > span {
+            transform: translateX(20px);
+            // max-width: 0;
+            padding: 0 5px;
+            box-sizing: border-box;
+            overflow: hidden;
+            @include transition(0.3);
+        }
+    }
+
+    @at-root .is-lnb & {
+        top: 60px;
+    }
+}

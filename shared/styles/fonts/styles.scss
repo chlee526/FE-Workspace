@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/**
+ * 스포카  
+ * https://spoqa.github.io/spoqa-han-sans/#webfont
+*/
+
+// Icon
+@font-face {
+    font-family: 'icomoon';
+    src: url('@shared/styles/fonts/icomoon/icomoon.woff') format('woff'), /* Modern Browsers */ url('@shared/styles/fonts/icomoon/icomoon.ttf') format('truetype'), /* Safari, Android, iOS */ url('@shared/styles/fonts/icomoon/icomoon.svg#icomoon') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+//Pretendard
+@font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: block;
+    src: local('Pretendard Variable'), url('@shared/styles/fonts/pretendard/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+// Spoqa
+// @font-face {
+//     font-family: 'Spoqa Han Sans';
+//     font-weight: 700;
+//     font-display: block;
+//     src: local('Spoqa Han Sans Medium'), url('@shared/styles/fonts/spoqa_han_sans/SpoqaHanSansNeo-Medium.woff2') format('woff2');
+// }
+// @font-face {
+//     font-family: 'Spoqa Han Sans';
+//     font-weight: 400;
+//     font-display: block;
+//     src: local('Spoqa Han Sans Light'), url('@shared/styles/fonts/spoqa_han_sans/SpoqaHanSansNeo-Light.woff2') format('woff2');
+// }
+// @font-face {
+//     font-family: 'Spoqa Han Sans';
+//     font-weight: 300;
+//     font-display: block;
+//     src: local('Spoqa Han Sans Light'), url('@shared/styles/fonts/spoqa_han_sans/SpoqaHanSansNeo-Light.woff2') format('woff2');
+// }
+// @font-face {
+//     font-family: 'Spoqa Han Sans';
+//     font-weight: 100;
+//     font-style: normal;
+//     font-display: block;
+//     src: local('Spoqa Han Sans Thin'), url('@shared/styles/fonts/spoqa_han_sans/SpoqaHanSansNeo-Thin.woff2') format('woff2');
+// }
+
+// Variables
+// $font_family: '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', 'AppleSDGothicNeo-Light', 'Sans-serif', 'Tahoma'; // 맑은고딕
+$font_family: 'Pretendard Variable', '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', 'AppleSDGothicNeo-Light', 'Sans-serif', 'Tahoma'; // Pretendard
+// $font_family: 'Spoqa Han Sans', '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', 'AppleSDGothicNeo-Light', 'Sans-serif', 'Tahoma'; // Spoqa
+$font_size: 13px;
+
+// Style
+body {
+    font-family: $font_family;
+    // font-size: 0.75em;
+    font-size: $font_size;
+    @include transition(0);
+}
+
+.ui_fs_1_2 {
+    font-size: 1.2em;
+}
+.ui_fs_1_4 {
+    font-size: 1.4em;
+}
+.ui_fs_1_6 {
+    font-size: 1.6em;
+}
+.ui_fs_11 {
+    font-size: 11px;
+}
+
+.ui_fw_n {
+    font-weight: normal;
+}
+.ui_fw_b {
+    font-weight: bold;
+}

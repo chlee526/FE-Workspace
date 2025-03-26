@@ -1,0 +1,429 @@
+@charset "utf-8";
+
+.tmpl_attr_selector {
+    position: relative;
+
+    > .wrap {
+        // 버튼 영역
+        > .btns {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            box-sizing: border-box;
+
+            > * {
+                margin: 0 3px;
+            }
+        }
+    }
+
+    &.is-tmpl-1 {
+        > .wrap {
+            display: flex;
+            flex-wrap: wrap;
+
+            // 목록
+            > .list {
+                flex: 0 0 30%;
+                box-sizing: border-box;
+
+                ul {
+                    position: relative;
+                    height: 200px;
+                    overflow: hidden;
+                    overflow-y: scroll;
+
+                    &:empty {
+                        display: flex;
+                        justify-content: center;
+                        height: 200px !important;
+
+                        // &:before {
+                        //     content: '데이터가 없습니다.';
+                        //     position: absolute;
+                        //     top: 50%;
+                        //     width: 100%;
+                        //     margin-top: -0.5em;
+                        //     color: $font_color_dm;
+                        //     text-align: center;
+                        //     line-height: 1;
+                        // }
+
+                        &:before {
+                            content: '\e066';
+                            font-family: 'icomoon';
+                            color: $font_color_dm;
+                            font-size: 16px;
+                            text-align: center;
+                            line-height: 1;
+                            align-self: center;
+                        }
+                        &:after {
+                            content: ' 데이터가 없습니다.';
+                            padding-left: 5px;
+                            font-family: 'icomoon';
+                            color: $font_color_dm;
+                            text-align: center;
+                            line-height: 16px;
+                            align-self: center;
+                        }
+                    }
+
+                    li {
+                        padding: 3px 0 4px;
+                        border-bottom: 1px dashed #d9d9d9;
+
+                        input {
+                            @include customComponent();
+
+                            & + label {
+                                display: flex;
+                                padding: 8px 10px;
+                                border-radius: 10px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                @include transition();
+
+                                > * {
+                                    &.rank {
+                                        width: 20px;
+                                        @include opacity(0.6);
+                                    }
+                                    &.title {
+                                        font-size: 13px;
+                                    }
+                                    &.dv {
+                                        margin-left: auto;
+                                        @include opacity(0.6);
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                & + label {
+                                    background: #efefef;
+                                }
+                            }
+
+                            &:checked {
+                                & + label {
+                                    background: #efefef;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 선택 목록
+            > .sel_list {
+                flex: 0 0 70%;
+                padding: 0 0 0 20px;
+                box-sizing: border-box;
+
+                .wrap {
+                    position: relative;
+                    height: 100%;
+                    padding: 20px;
+                    border-radius: 10px;
+                    background: rgba(0, 0, 0, 0.05);
+                    box-sizing: border-box;
+
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        height: 100%;
+
+                        li {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex: 1 1 180px;
+                            max-width: 300px;
+                            min-height: 120px;
+                            height: 100%;
+                            margin: 0 5px;
+                            border-radius: 10px;
+                            box-sizing: border-box;
+
+                            &:empty {
+                                border: 1px dashed #dfdfdf;
+                                background: #ffffff;
+
+                                &:before {
+                                    content: '대상을 선택하세요';
+                                    color: #999;
+                                    align-self: center;
+                                }
+                            }
+
+                            .item {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                padding: 2px 10px;
+                                border-radius: 10px;
+                                background: rgba(0, 0, 0, 0.06);
+                                box-sizing: border-box;
+                                color: #ffffff;
+                                cursor: pointer;
+                                @include transition();
+
+                                > * {
+                                    text-align: center;
+
+                                    &.rank {
+                                        position: absolute;
+                                        top: -5px;
+                                        left: -5px;
+                                        width: 30px;
+                                        height: 30px;
+                                        border-radius: 5px;
+                                        background: #505050;
+                                        line-height: 30px;
+                                    }
+                                    &.title {
+                                        display: -webkit-box;
+                                        -webkit-box-orient: vertical;
+                                        -webkit-line-clamp: 4;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        font-size: 15px;
+                                        line-height: 1.1em;
+                                        max-height: 4.4em;
+                                    }
+                                    &.dv {
+                                        padding: 5px 0 0 0;
+                                    }
+                                    &.ui_fluc {
+                                        margin: 5px 0 0 0;
+                                    }
+                                }
+
+                                &:disabled {
+                                    cursor: default;
+                                }
+                            }
+                        }
+
+                        // & + label {
+                        //     display: flex;
+                        //     flex-direction: column;
+                        //     justify-content: center;
+                        //     position: relative;
+                        //     height: 90px;
+                        //     padding: 2px 10px;
+                        //     border-radius: 10px;
+                        //     background: #f1f1f1;
+                        //     box-sizing: border-box;
+                        //     cursor: pointer;
+                        //     @include transition();
+
+                        //     > * {
+                        //         text-align: center;
+
+                        //         &.rank {
+                        //             // position: absolute;
+                        //             // width: 20px;
+                        //             padding: 0 0 5px 0;
+                        //             @include opacity(0.6);
+                        //         }
+                        //         &.title {
+                        //             display: -webkit-box;
+                        //             -webkit-box-orient: vertical;
+                        //             -webkit-line-clamp: 3;
+                        //             overflow: hidden;
+                        //             text-overflow: ellipsis;
+                        //             font-size: 14px;
+                        //             line-height: 1.1em;
+                        //             max-height: 3.3em;
+                        //         }
+                        //         &:last-child {
+                        //             padding: 3px 0 0 0;
+                        //         }
+                        //     }
+                        // }
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-tmpl-2 {
+        > .wrap {
+            display: flex;
+            flex-wrap: wrap;
+
+            // 목록
+            > .list {
+                // flex: 0 0 30%;
+                width: 100%;
+                box-sizing: border-box;
+
+                ul {
+                    display: flex;
+                    position: relative;
+                    flex-wrap: wrap;
+                    // justify-content: space-between;
+                    height: 188px;
+                    overflow: hidden;
+                    overflow-y: scroll;
+
+                    &:empty {
+                        justify-content: center;
+                        height: 94px !important;
+
+                        &:before {
+                            content: '\e066';
+                            font-family: 'icomoon';
+                            color: $font_color_dm;
+                            font-size: 16px;
+                            text-align: center;
+                            line-height: 1;
+                            align-self: center;
+                        }
+                        &:after {
+                            content: ' 데이터가 없습니다.';
+                            padding-left: 5px;
+                            font-family: 'icomoon';
+                            color: $font_color_dm;
+                            text-align: center;
+                            line-height: 16px;
+                            align-self: center;
+                        }
+                    }
+
+                    li {
+                        flex: 1 0 180px;
+                        align-self: center;
+                        padding: 2px;
+
+                        input {
+                            @include customComponent();
+
+                            & + label {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                position: relative;
+                                height: 90px;
+                                padding: 20px 10px 2px;
+                                border-radius: 10px;
+                                background: rgba(0, 0, 0, 0.06);
+                                box-sizing: border-box;
+                                overflow: hidden;
+                                cursor: pointer;
+                                @include transition();
+
+                                > * {
+                                    text-align: center;
+
+                                    &.rank {
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        background: rgba(0, 0, 0, 0.05);
+                                        overflow: hidden;
+                                        line-height: 1.5em;
+                                    }
+                                    &.title {
+                                        display: -webkit-box;
+                                        -webkit-box-orient: vertical;
+                                        -webkit-line-clamp: 2;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        font-size: 14px;
+                                        line-height: 1.1em;
+                                        max-height: 2.2em;
+                                    }
+                                    &:last-child {
+                                        padding: 3px 0 0 0;
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                & + label {
+                                    background: #e6e6e6;
+                                }
+                            }
+
+                            &:checked {
+                                & + label {
+                                    background: #999;
+                                    color: #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 선택 목록
+            > .sel_list {
+                width: 100%;
+                padding: 10px 0 0 0;
+
+                .wrap {
+                    position: relative;
+                    padding: 10px;
+                    border: 1px solid #ebebeb;
+                    border-radius: 10px;
+                    background: rgba(0, 0, 0, 0.06);
+                    box-sizing: border-box;
+
+                    ul {
+                        display: flex;
+                        height: 100%;
+
+                        li {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            max-width: 300px;
+                            // width: 300px;
+                            height: 100%;
+                            margin: 0 3px;
+                            box-sizing: border-box;
+                            color: #fff;
+                            @include transition();
+                            // text-align: center;
+
+                            &:empty {
+                                &:before {
+                                    content: '미선택';
+                                    padding: 5px 15px;
+                                    border: 1px dashed #dfdfdf;
+                                    border-radius: 100px;
+                                    background: #ffffff;
+                                    box-sizing: border-box;
+                                    color: #999;
+                                    line-height: 1em;
+                                }
+                            }
+
+                            .item {
+                                display: block;
+                                padding: 5px 10px;
+                                border-radius: 4px;
+                                border: 1px solid transparent;
+                                background: #666;
+                                line-height: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 버튼 영역
+            > .btns {
+            }
+        }
+    }
+}

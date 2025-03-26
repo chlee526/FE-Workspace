@@ -1,0 +1,119 @@
+.notice_popup_container {
+    position: fixed;
+    top: 33px;
+    left: 23px;
+    z-index: 10;
+
+    .notice_popup_item {
+        position: absolute;
+        border-radius: 8px;
+        border: 1px solid #e1e1e1;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 5px 10px 0 #00000040;
+
+        &.img_load {
+            visibility: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            height: 52px;
+            padding: 18px 20px;
+            border-bottom: 1px solid #e1e1e1;
+
+            .wrap {
+                h2 {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        #editor {
+            border: 0;
+
+            a {
+                color: inherit;
+                cursor: pointer;
+            }
+        }
+
+        // ====임시 ====
+        .content {
+            box-sizing: border-box;
+            // width: 450px;
+            // height: 300px;
+            // max-width: 600px;
+            // max-height: 350px;
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 15px;
+
+            h2 {
+                font-size: 19px;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        // ====임시 =====
+
+        .content_img {
+            position: relative;
+            padding: 0px;
+            width: 500px;
+            height: 300px;
+
+            img {
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &.is-no-image {
+                > img {
+                    @include opacity(0);
+                }
+
+                &:after {
+                    content: '\e048';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    margin: -12px 0 0 0;
+                    font-family: 'icomoon';
+                    color: #cccccc;
+                    font-size: 35px;
+                    line-height: 24px;
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-sizing: border-box;
+            height: 36px;
+            padding: 10px;
+            background: $body_bg_color;
+            border-top: 1px solid #e1e1e1;
+
+            .close_btn {
+                box-sizing: border-box;
+                width: 60px;
+                height: 24px;
+                padding: 3px 0;
+                margin-left: 10px;
+            }
+        }
+    }
+}

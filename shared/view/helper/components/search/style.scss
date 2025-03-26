@@ -1,0 +1,80 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+.searchPage {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    align-content: center;
+    padding: 10vh 0 0 0;
+
+    h2 {
+        font-size: 2.4em;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    // 검색 영역
+    > .search {
+        position: sticky;
+        top: 0;
+        width: 80%;
+        max-width: 1000px;
+        min-width: 50%;
+        margin: 0 auto;
+
+        .dcp.inputBox {
+            padding: 2px;
+            border-radius: 100px;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{var(--primary)}, endColorstr=#{var(--secondary)}, GradientType=1 );
+            font-size: 1.2rem;
+
+            .input {
+                display: block;
+
+                input {
+                    border: none;
+                    border-radius: 100px;
+                    padding: 0.8em 5em 0.8em 1em;
+                }
+
+                > .search {
+                    display: block;
+                    position: absolute;
+                    top: 4px;
+                    right: 4px;
+                    height: calc(100% - 8px);
+                }
+                .btn_search {
+                    padding: 0 0.8em;
+                    border-radius: 100px;
+                    box-sizing: border-box;
+                    background: none;
+                    color: $gr_color_02;
+                    // background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+                    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{var(--primary)}, endColorstr=#{var(--secondary)}, GradientType=1 );
+                }
+            }
+        }
+    }
+
+    // 결과 영역
+    > .result {
+        display: flex;
+        flex-direction: column;
+        // gap: 2em;
+
+        > .noData {
+            padding: 6em 0 0;
+            color: $font_color_dm;
+            font-size: 1.2em;
+            text-align: center;
+
+            > strong {
+                color: $font_color_hl;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+#wrap:not(.is-lnb) .popup_excel_uploader .ui_brd > .wrap > table > thead,
+#wrap .popup_excel_uploader .ui_brd > .wrap > table > thead {
+    top: -20px;
+}
+
+.popup_container .popup_item.popup_excel_uploader {
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & > div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            &:has(.errors) {
+                gap: 10px;
+
+                .errors {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+            }
+        }
+    }
+
+    .content {
+        scroll-behavior: smooth;
+
+        .ui_brd {
+            .wrap {
+                position: static;
+                overflow: unset;
+
+                td {
+                    &.is-error {
+                        .dcp.inputBox input,
+                        .dcp.selectBox > .wrap .inputs,
+                        .dcp.textarea textarea,
+                        .dcp.textarea textarea:hover {
+                            border-color: #ff0000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

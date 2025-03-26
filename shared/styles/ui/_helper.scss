@@ -1,0 +1,308 @@
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    도움말
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+.ui_help {
+    padding: 14px 0 0;
+    line-height: 16px;
+
+    > .wrap {
+        // 도움말 타이틀
+        > .title {
+            display: block;
+            padding-bottom: 20px;
+            font-size: 1.3em;
+
+            &:before {
+                content: '\e006';
+                padding-right: 8px;
+                font-family: 'icomoon';
+                font-size: 0.95em;
+                font-weight: normal;
+            }
+        }
+    }
+
+    > ul,
+    > div > ul {
+        display: block;
+        position: relative;
+        padding: 15px 20px 15px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            right: var(--arrowRight);
+            @include triangle('top', rgba(0, 0, 0, 0.05), 16px, 12px);
+        }
+
+        > li {
+            padding: 0 0 12px 0;
+
+            &:last-child {
+                padding: 0;
+            }
+
+            &.title {
+                display: block;
+                padding-bottom: 12px;
+                font-size: 1.1em;
+
+                &:before {
+                    content: '\e006';
+                    padding-right: 8px;
+                    font-family: 'icomoon';
+                    font-size: 0.95em;
+                    font-weight: normal;
+                }
+
+                > * {
+                    display: inline !important;
+                    padding: 0 !important;
+
+                    &:before {
+                        content: none;
+                    }
+                }
+            }
+
+            > strong,
+            > span {
+                display: block;
+                position: relative;
+                padding: 0 0 0 12px;
+                line-height: 16px;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 6px;
+                    left: 0;
+                    width: 3px;
+                    height: 3px;
+                    background: #666666;
+                }
+            }
+
+            > ul {
+                display: block;
+                padding: 3px 0 0 12px;
+
+                > li {
+                    position: relative;
+                    padding: 0 0 3px 12px;
+                    font-size: 0.917em;
+                    line-height: 16px;
+
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+
+                    &.is-no-hypen {
+                        padding-left: 0 !important;
+
+                        &:before {
+                            content: none !important;
+                        }
+                    }
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 8px;
+                        left: 2px;
+                        width: 4px;
+                        height: 1px;
+                        margin: -1px 0 0 0;
+                        background: #999999;
+                    }
+                }
+
+                &.ex {
+                    > li {
+                        padding-left: 32px;
+                        color: #999999;
+
+                        &:before {
+                            content: '[ex] -';
+                            position: absolute;
+                            top: 1px;
+                            left: 2px;
+                            width: auto;
+                            height: auto;
+                            margin: -1px 0 0 0;
+                            background: none;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            em {
+                color: #999999;
+            }
+        }
+    }
+
+    .ex {
+        @include inlineBlock();
+        padding: 5px;
+        margin: 2px 0;
+        border-radius: 4px;
+        background: #f9f9f9;
+        line-height: 1.3em;
+
+        &.is-block {
+            display: block;
+            margin-top: 8px;
+            padding: 8px;
+        }
+
+        table {
+            text-align: center;
+
+            th,
+            td {
+                &:first-child {
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+                &:last-child {
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+            }
+
+            thead {
+                th,
+                td {
+                    padding: 4px;
+                    border-right: 1px solid #f1f1f1;
+                    background: #e3e3e3;
+                }
+            }
+            tbody {
+                tr {
+                    th,
+                    td {
+                        padding: 4px;
+                        border-right: 1px solid #f3f3f3;
+                        border-bottom: 1px solid #f3f3f3;
+
+                        &:last-child {
+                            border-right: none !important;
+                        }
+                    }
+
+                    &:last-child {
+                        th,
+                        td {
+                            border-bottom: none !important;
+                        }
+                    }
+                }
+            }
+            tfoot {
+                th,
+                td {
+                    padding: 4px;
+                    background: #f3f3f3;
+                }
+            }
+        }
+    }
+
+    // Tooltip 내 도움말인 경우
+    @at-root .htmlContent & {
+        padding: 0;
+
+        > ul {
+            padding: 0;
+            border-radius: 0;
+            background: none;
+
+            &:before {
+                content: none;
+            }
+
+            > li {
+                > strong,
+                > span {
+                    &:before {
+                        background: #c5c5c5;
+                    }
+                }
+
+                em {
+                    color: #c5c5c5;
+                }
+            }
+        }
+
+        .ex {
+            background: rgba(0, 0, 0, 0.3);
+
+            table {
+                thead {
+                    th,
+                    td {
+                        border-right: 1px solid rgba(0, 0, 0, 0.5);
+                        background: rgba(0, 0, 0, 0.4);
+                    }
+                }
+                tbody {
+                    tr {
+                        th,
+                        td {
+                            border-right: 1px solid rgba(0, 0, 0, 0.4);
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+                        }
+                    }
+                }
+                tfoot {
+                    th,
+                    td {
+                        background: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+    }
+
+    // 박스기본모양(툴팁모양) 제거
+    &.is-box-none {
+        padding: 0;
+
+        > div > ul {
+            padding: 0;
+            background: none;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    // 높이 슬림 사이즈
+    &.is-fixed {
+        > .wrap {
+            padding: 0;
+
+            > ul {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &.is-hgt-slim {
+        li:not(.title) {
+            padding-bottom: 5px !important;
+        }
+    }
+}

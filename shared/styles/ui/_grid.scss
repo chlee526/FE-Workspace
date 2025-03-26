@@ -1,0 +1,78 @@
+/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+    GIRD Stytem
+    - 1 ~ 24 분할
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+.ui_row {
+    position: relative;
+    max-width: $doc_max_wid;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    > .wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: space-between;
+        position: relative;
+
+        > * {
+            flex: 1 1;
+        }
+
+        > .ui_col {
+            position: relative;
+            max-width: 100%;
+
+            @for $Loop1 from 1 through 24 {
+                &.w#{$Loop1} {
+                    flex: 1 1 calc(4.1666% * #{$Loop1});
+                    box-sizing: border-box;
+                }
+            }
+        }
+
+        > hr {
+            flex: 0 0;
+            height: auto;
+            border: none;
+            border-right: 1px dashed #e6e6e6;
+            background: none;
+            box-sizing: border-box;
+        }
+
+        &.is-cols-pad {
+            gap: 20px;
+        }
+    }
+
+    &.is-2dp {
+        margin-bottom: 20px;
+    }
+
+    &.is-3dp {
+        margin-bottom: 6px;
+
+        > .wrap {
+            gap: 6px;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    #wrap.is-lnb .appContainerWrap & {
+        max-width: none;
+        padding: 0 80px 0 50px;
+
+        .ui_row {
+            padding: 0;
+        }
+    }
+
+    // 관리자 모드일 경우
+    @at-root #wrap.is-admin & {
+        max-width: none;
+    }
+}

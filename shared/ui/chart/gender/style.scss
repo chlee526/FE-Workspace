@@ -1,0 +1,111 @@
+// 성별차트
+.ui_chart_wrap {
+    &.is-gender {
+        height: 220px;
+        padding: 30px;
+
+        .graphBox {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+
+            .manWrap {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                height: 100%;
+                margin-right: 30px;
+
+                .manGraph {
+                    position: relative;
+                    width: auto;
+                    height: 100%;
+
+                    .info {
+                        position: absolute;
+                        left: 50%;
+                        top: -30px;
+                        transform: translateX(-50%);
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #212121;
+                    }
+
+                    #manImg {
+                        height: 100%;
+                    }
+
+                    .dataBox {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                .name {
+                    position: absolute;
+                    bottom: -25px;
+                    left: 50%;
+                    white-space: nowrap;
+                    transform: translate(-50%);
+                }
+            }
+
+            .womanWrap {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                height: 100%;
+                margin-left: 30px;
+
+                .womanGraph {
+                    position: relative;
+                    width: auto;
+                    height: 100%;
+
+                    .info {
+                        position: absolute;
+                        left: 50%;
+                        top: -30px;
+                        transform: translateX(-50%);
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #212121;
+                    }
+
+                    #womanImg {
+                        height: 100%;
+                    }
+
+                    .dataBox {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                .name {
+                    position: absolute;
+                    bottom: -25px;
+                    left: 50%;
+                    white-space: nowrap;
+                    transform: translate(-50%);
+                }
+            }
+        }
+    }
+}

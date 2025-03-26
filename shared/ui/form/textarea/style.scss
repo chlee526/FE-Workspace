@@ -1,0 +1,80 @@
+// 단일
+.dcp {
+    @include inlineBlock();
+    position: relative;
+    max-width: 100%;
+    color: inherit;
+    line-height: 1;
+
+    &.textarea {
+        display: block;
+
+        textarea {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 6px 10px;
+            border: 1px solid $component_brd_color;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background: #ffffff;
+            color: $component_font_color;
+            text-align: left;
+            line-height: 1.5em;
+            outline: none;
+            resize: none;
+            @include transition();
+
+            &:hover {
+                border: 1px solid $component_brd_color_over;
+            }
+
+            &:focus {
+                border: 1px solid $component_brd_color_active;
+                color: $component_font_color_active;
+            }
+
+            &[disabled] {
+                border: 1px solid $component_brd_color_disabled;
+                background: $component_bg_color_disabled;
+                color: $component_font_color_disabled !important;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    // Loading
+    .in_loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        text-indent: -9999px;
+        visibility: hidden;
+        z-index: 10;
+        @include backgroundAlpha(#ffffff, 0.8);
+        @include opacity(0);
+        @include transition();
+        @include shadow(1px, 1px, 2px, 0.1);
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            margin: -7px 0 0 -7px;
+            border-radius: 7px;
+            // background: url(~static/img/ui/ui_loader_02.gif) no-repeat center center;
+        }
+    }
+    &.loading {
+        .in_loader {
+            visibility: visible;
+            @include opacity(1);
+        }
+    }
+}

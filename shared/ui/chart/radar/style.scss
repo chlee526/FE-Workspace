@@ -1,0 +1,11 @@
+.ui_chart_container {
+    &.is-radar {
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+
+         .ui_chart_wrap {
+            flex-grow: 1;
+        }
+    }
+}

@@ -1,0 +1,261 @@
+//색변수
+:root {
+    --pointBgColor: #000;
+    --pointTxtColor: #fff;
+    --focusBoxOnOff: none;
+}
+
+.age_rank_wrap {
+    padding-top: 1px;
+
+    .rank_wrap {
+        display: flex;
+        width: 100%;
+        padding: 0 50px;
+        box-sizing: border-box;
+        position: relative;
+        align-items: stretch;
+
+        .rank_table_wrap {
+            flex: 1 1 auto;
+            overflow: hidden;
+
+            .rank_table_box {
+                width: auto !important;
+                min-width: 100%;
+                min-height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-flow: row nowrap;
+                gap: 10px;
+                // transition: transform 0.5s;
+                overflow: visible;
+
+                .keyword_table {
+                    flex: 0 0 calc(25% - 7.5px) !important;
+                    width: none !important;
+                    margin-right: 0 !important;
+
+                    thead {
+                        th {
+                            padding: 0;
+                        }
+
+                        .ui_multi_opts_select {
+                            &.is-large {
+                                > .input {
+                                    display: block;
+                                    position: relative;
+                                    height: 100%;
+                                    padding: 9px 15px;
+                                    border-radius: 4px;
+                                    box-sizing: border-box;
+                                    font-size: 1.083em;
+                                    text-align: center;
+                                    cursor: pointer;
+                                    outline: none;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+
+                                    > * {
+                                        position: relative;
+                                        z-index: 2;
+                                    }
+                                }
+
+                                > .list {
+                                    position: absolute;
+                                    width: 100%;
+                                    margin-top: 5px;
+                                    z-index: 1;
+
+                                    > .wrap {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        flex-direction: column;
+                                        width: calc(100% - 8px);
+                                        padding: 3px;
+                                        border: 1px solid #d4d4d4;
+                                        border-radius: 5px;
+                                        background: #fff;
+                                        @include shadow(0, 1px, 2px, 0.16, 0, 0, 0);
+
+                                        > .list_option {
+                                            display: flex;
+                                            justify-content: space-evenly;
+                                            padding: 10px 0;
+
+                                            > * {
+                                                display: flex;
+                                                flex: 0 0 100px;
+                                                flex-direction: column;
+
+                                                > .dcp {
+                                                    &:not(:first-child) {
+                                                        margin-top: 4px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    thead + .empty_table {
+                        td {
+                            .ui_no_data_txt {
+                                display: block;
+                                width: 100%;
+                                padding: 0;
+                                color: #999 !important;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        > tr {
+                            > td {
+                                cursor: pointer;
+                                & > div {
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .ui_brd.is-data-v2 {
+            &.is-bg-white {
+                & > .wrap {
+                    table tbody tr {
+                        td {
+                            &::before {
+                                background: #fff;
+                            }
+                        }
+
+                        &.no_data {
+                            & > td {
+                                &::before {
+                                    background: #fff !important;
+                                }
+                            }
+                        }
+                    }
+
+                    & > .empty_table {
+                        background: #fff;
+                    }
+                }
+            }
+
+            &.rank_box {
+                flex: 0 0 50px;
+                padding-right: 5px;
+                box-sizing: border-box;
+
+                .wrap {
+                    table {
+                        width: calc(100%);
+                        margin-right: 0;
+
+                        thead {
+                            th {
+                                height: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .wrap {
+                & > * {
+                    &:is(table) tbody {
+                        tr {
+                            &:hover:not(:empty):not(.no_data),
+                            &.on {
+                                td {
+                                    color: #fff !important;
+
+                                    &:before {
+                                        background: var(--pointBgColor) !important;
+                                    }
+
+                                    & > div {
+                                        span.rank {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.no_data {
+                                & > td:hover {
+                                    div {
+                                        & > span {
+                                            color: #666;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.empty_table {
+                        flex: 0 0 calc(25% - 7.5px) !important;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: #f7f7f7;
+                        border-radius: 5px;
+
+                        span.ui_no_data_txt {
+                            padding: 0;
+
+                            &::before {
+                                font-size: 54px;
+                                opacity: 0.2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > .btn_box {
+            button {
+                width: 40px;
+                height: 100%;
+                border-radius: 10px;
+                font-family: 'icomoon';
+                font-size: 50px;
+                text-indent: -5px;
+                transition: all 0.3s;
+                position: absolute;
+                top: 0;
+
+                &:hover {
+                    background: rgba(#ddd, 0.3);
+                }
+
+                &:disabled {
+                    color: #ddd;
+                    cursor: not-allowed;
+                }
+
+                &.prev_btn {
+                    left: 0;
+                }
+
+                &.next_btn {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

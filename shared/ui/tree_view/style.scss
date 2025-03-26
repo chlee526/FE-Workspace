@@ -1,0 +1,348 @@
+.ui-tree-view {
+    // 검색 영역
+    > .inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background: #f3f3f3;
+
+        // 추가 버튼
+        .btnAdd {
+            > .title-wrap {
+                @extend .ui_btn, .is-icon-only;
+                font-family: 'icomoon';
+            }
+        }
+    }
+
+    // 아이템 영역
+    > .wrap {
+        display: flex;
+        overflow: auto !important;
+
+        div[role='group'] {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 100%;
+        }
+
+        &:not(:first-child) {
+            .tree-node {
+                &.node-l1 {
+                    border-top: 1px solid rgba(0, 0, 0, 0.07);
+
+                    &.is-expand {
+                        border-top: 1px solid rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+
+        // 노드 아이템
+        .tree-node {
+            position: relative;
+            display: flex;
+            flex-wrap: nowrap;
+            flex: 1 1;
+            justify-content: flex-end;
+            gap: 4px;
+            cursor: pointer;
+            @include transition(0.2, 0, border);
+
+            // 배경
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                @include transition();
+            }
+
+            // 확장/축소
+            > .expand {
+                flex: 0 0 20px;
+                display: block;
+                position: relative;
+                width: 20px;
+                height: 24px;
+                font-family: 'icomoon';
+                color: #999;
+                font-size: 14px;
+                cursor: pointer;
+                padding: 8px 0;
+
+                &:before {
+                    content: '\e000';
+                    position: absolute;
+                    top: 50% !important;
+                    left: 4px !important;
+                    transform: translateY(-50%);
+                    @include opacity(0.6);
+                    @include transition();
+                }
+            }
+
+            // 확장/축소 자리가 비었을때 대신 사용
+            > .not-expand {
+                flex: 0 0 20px;
+                display: block;
+                padding: 8px 0;
+                width: 20px;
+                height: 24px;
+            }
+
+            // 사용자 컴포넌트 영역
+            > .custom_wrap {
+                display: flex;
+                flex: 1 1;
+                gap: 4px;
+                position: relative;
+                padding: 8px 0;
+
+                > .bg {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    @include transition();
+                }
+
+                // 아이콘
+                > .icon {
+                    flex: 0 0 20px;
+                    display: block;
+                    position: relative;
+                    width: 20px;
+                    height: 24px;
+                    color: #999;
+                    @include transition(0.18, 0, color);
+
+                    &:before {
+                        content: '\e088';
+                        position: absolute;
+                        top: 50% !important;
+                        left: 0 !important;
+                        transform: translateY(-50%);
+                        font-family: 'icomoon';
+                        font-size: 20px;
+                    }
+
+                    &:nth-child(2) {
+                        margin-left: 24px;
+                    }
+                }
+
+                // 타이틀
+                > .node-name {
+                    flex: 1 0 auto;
+                    cursor: pointer !important;
+
+                    > .input {
+                        min-width: auto;
+                        width: 100%;
+                        max-width: 102px;
+                        box-sizing: border-box;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        line-height: 24px;
+
+                        > span {
+                            @include transition();
+                        }
+                    }
+
+                    .is-not-active {
+                        cursor: pointer !important;
+
+                        > span {
+                            @include transition();
+                        }
+                    }
+                }
+
+                // 필터 영역
+                > .filter_wrap {
+                    display: flex;
+                    flex: 0 0 auto;
+
+                    flex-wrap: nowrap;
+                    align-self: center;
+                    align-items: center;
+                    gap: 0 3px;
+                    padding: 0 8px 0 0;
+
+                    > .btnDel {
+                        visibility: hidden;
+                        @include opacity(0);
+                        @include transition();
+
+                        > span {
+                            @extend .ui_btn;
+                            width: 20px;
+                            height: 20px;
+                            padding: 0;
+                            font-family: 'icomoon';
+                            font-size: 12px;
+                            text-align: center;
+                            line-height: 18px;
+                        }
+                    }
+
+                    // 추가 버튼
+                    > .btnAdd {
+                        visibility: hidden;
+                        @include opacity(0);
+                        @include transition();
+
+                        .title-wrap {
+                            @extend .ui_btn;
+                            width: 20px;
+                            height: 20px;
+                            padding: 0;
+                            font-family: 'icomoon';
+                            font-size: 12px;
+                            text-align: center;
+                            line-height: 18px;
+                        }
+
+                        .items_wrap {
+                            .items {
+                                .btn_reset {
+                                    color: #666666;
+                                }
+                            }
+                        }
+                    }
+
+                    // 수정 버튼
+                    > .btnMdfy {
+                        visibility: hidden;
+                        @include opacity(0);
+                        @include transition();
+
+                        .title-wrap {
+                            @extend .ui_btn;
+                            width: 20px;
+                            height: 20px;
+                            padding: 0;
+                            font-family: 'icomoon';
+                            font-size: 12px;
+                            text-align: center;
+                            line-height: 18px;
+                        }
+                    }
+                }
+
+                &.not_child_maxLv1 {
+                    padding-left: 8px;
+                }
+
+                &.on-tooltip,
+                &:hover {
+                    > .filter_wrap {
+                        > .btnDel,
+                        > .btnAdd,
+                        > .btnMdfy {
+                            visibility: visible;
+                            @include opacity(1);
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                &:before {
+                    background: rgba(0, 0, 0, 0.03);
+                }
+
+                > .filter_wrap {
+                    > .btnDel,
+                    > .btnAdd,
+                    > .btnMdfy {
+                        visibility: visible;
+                        @include opacity(1);
+                    }
+                }
+            }
+
+            &.is-active {
+                > .custom_wrap {
+                    > .icon,
+                    .input {
+                        color: var(--primary);
+                    }
+                }
+
+                > .node-name {
+                    .is-not-active {
+                        > span {
+                            color: var(--primary);
+                        }
+                    }
+                }
+            }
+
+            // 노드 확장
+            &.is-expand {
+                > .expand {
+                    &:before {
+                        transform: translateY(-50%) rotate(90deg);
+                        @include opacity(1);
+                    }
+                }
+                > .custom_wrap {
+                    > .icon {
+                        &:before {
+                            content: '\e089';
+                        }
+                    }
+                }
+            }
+
+            // 레벨별 노드 구성
+            @for $Loop1 from 1 to 10 {
+                &.node-l#{$Loop1} {
+                    padding-left: (($Loop1 * 24px - 24px));
+
+                    @if ($Loop1 > 0) {
+                        background: rgba(0, 0, 0, (($Loop1 - 1) * 0.03));
+
+                        > .icon {
+                            width: 18px;
+
+                            &:before {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    &.is-expand {
+                        @if ($Loop1 > 1) {
+                            // border-color: red;
+                        }
+                        background: rgba(0, 0, 0, ($Loop1 * 0.03));
+                    }
+                }
+            }
+        }
+    }
+
+    > .nodata-wrap {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+        > .ui_no_data_txt {
+            padding: 0 !important;
+        }
+    }
+}

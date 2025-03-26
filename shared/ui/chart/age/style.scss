@@ -1,0 +1,79 @@
+.ui_chart_wrap {
+    &.is-age {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0;
+        text-align: center;
+
+        > .item {
+            flex: 0 1 45px;
+            min-width: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .gage {
+                flex: 1 0;
+                display: flex;
+                flex-direction: column-reverse;
+                min-width: 12px;
+                max-width: 30px;
+                margin: 0 auto;
+                // border: 1px solid #ebebeb;
+                border-radius: 100px 100px 0 0;
+                background: #f4f4f4;
+                @include transition();
+
+                .ui_bubble {
+                    flex: 1 0;
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
+
+                .bar {
+                    position: relative;
+                    width: 100%;
+                    bottom: 0;
+                    border-radius: 100px 100px 0 0;
+
+                    > .ageChartInfo {
+                        position: absolute;
+                        padding: 0 5px 0 3px;
+                        white-space: nowrap;
+                        text-align: left;
+                        display: none;
+                        left: 15px;
+                        top: -13px;
+                        z-index: 1;
+                        opacity: 0.9;
+                        border: 4px solid red;
+                        background: #ffff;
+                    }
+
+                    &:before {
+                        content: attr(data-content);
+                        position: absolute;
+                        top: -18px;
+                        left: 0;
+                        width: 100%;
+                        height: 0;
+                    }
+                }
+            }
+
+            .category {
+                flex: 0 0 24px;
+                padding: 12px 0 0;
+                line-height: 1;
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        .bubble_wrap {
+            display: block;
+            height: 0;
+            pointer-events: none;
+        }
+    }
+}

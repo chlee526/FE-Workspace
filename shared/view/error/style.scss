@@ -1,0 +1,93 @@
+#container.page-error {
+    .error {
+        > .wrap {
+            padding: 150px 20px 0;
+            text-align: center;
+
+            > #page_title {
+                display: inline-block;
+                position: relative;
+                color: $font_color;
+                font-size: 90px;
+                line-height: 180px;
+                text-align: center;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 32px;
+                    right: -32px;
+                    width: 16px;
+                    height: 16px;
+                    background: #dedede;
+                }
+
+                &:after {
+                    content: 'Error';
+                    position: absolute;
+                    top: -40px;
+                    right: -106px;
+                    width: 96px;
+                    height: 96px;
+                    padding: 36px 0;
+                    border-radius: 50%;
+                    background: #dedede;
+                    box-sizing: border-box;
+                    color: #c1c1c1;
+                    font-size: 24px;
+                    font-weight: bold;
+                    line-height: 1;
+                    text-align: center;
+                }
+            }
+
+            > .infos {
+                position: relative;
+                padding: 38px 0 0 0;
+                text-align: center;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60px;
+                    height: 2px;
+                    background: #dedede;
+                }
+
+                > .titles {
+                    display: block;
+                    font-size: 1.833em;
+                    font-weight: bold;
+                    line-height: 1.318em;
+                }
+                > .txts {
+                    display: block;
+                    padding: 10px 0 0 0;
+                    font-size: 1.333em;
+                    line-height: 1.375em;
+                }
+            }
+
+            > .btns {
+                padding: 40px 0 0 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &.is-logout {
+        .error {
+            > .wrap {
+                > #page_title {
+                    &:before,
+                    &:after {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+}

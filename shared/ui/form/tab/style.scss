@@ -1,0 +1,329 @@
+// Tab
+.ui_tab {
+    // display: table;
+    position: relative;
+    width: 100%;
+    padding-bottom: 6px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 1.333em;
+    overflow: auto;
+
+    // 가로 크기 자동
+    &.is-wid-auto {
+        > ul {
+            display: inline-flex;
+
+            > li {
+                > input {
+                    & + label {
+                        padding-left: 2em !important;
+                        padding-right: 2em !important;
+                    }
+                }
+            }
+        }
+    }
+
+    > ul {
+        // display: table-row;
+        display: flex;
+        flex-wrap: nowrap;
+
+        > li {
+            // display: table-cell;
+            flex: 1 1 auto;
+            height: 45px;
+            padding-top: 6px;
+            vertical-align: top;
+
+            &:not(:last-child) {
+                padding-right: 1px;
+            }
+
+            > input {
+                @include customComponent();
+
+                & + label {
+                    display: block;
+                    position: relative;
+                    padding: 15px 10px;
+                    background: rgba(128, 128, 128, 0.2);
+                    color: $font_color_dm;
+                    font-weight: bold;
+                    line-height: 1;
+                    text-align: center;
+                    overflow: hidden;
+                    cursor: pointer;
+                    @include transition();
+
+                    > span {
+                        position: relative;
+                        z-index: 1;
+
+                        &.txt {
+                            display: block;
+                        }
+                    }
+
+                    // &:after {
+                    //     content: '';
+                    //     position: absolute;
+                    //     top: 0;
+                    //     left: 0;
+                    //     width: 100%;
+                    //     height: 100%;
+                    //     z-index: 2;
+                    // }
+                }
+
+                &:hover + label,
+                & + label:hover {
+                    background: rgba(128, 128, 128, 0.45);
+                    color: $font_color;
+                }
+
+                &:checked + label {
+                    padding: 18px 10px;
+                    margin-top: -6px;
+                    border-radius: 5px 5px 0 0 !important;
+                    background: rgba(128, 128, 128, 1);
+                    color: #ffffff;
+                }
+
+                &[disabled] + label {
+                    background: rgba(128, 128, 128, 0.1);
+                    cursor: default;
+
+                    .txt {
+                        color: $component_font_color_disabled;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+
+            &:first-child {
+                > input + label {
+                    border-radius: 4px 0 0 0;
+                }
+            }
+            &:last-child {
+                > input + label {
+                    border-radius: 0 4px 0 0;
+                }
+            }
+        }
+    }
+
+    // 페이지 탭
+    &.is-page {
+        width: 100%;
+        padding: 6px 0 20px 0;
+        margin: 0 auto;
+        font-size: 1.667em;
+
+        &.is-wid-auto {
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+                height: 1px;
+                background: #eeeeee;
+            }
+        }
+
+        > ul {
+            position: relative;
+
+            > li {
+                height: auto;
+                padding-top: 0;
+
+                > input {
+                    & + label {
+                        padding: 20px 10px;
+                        overflow: visible;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 0;
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{var(--primary)}, endColorstr=#{var(--secondary)}, GradientType=1 );
+                            @include transition();
+                        }
+                    }
+
+                    &:hover + label {
+                        color: $font_color;
+                    }
+
+                    &:checked + label {
+                        padding: 20px 10px;
+                        margin: 0;
+                        background: #fff;
+                        color: $font_color;
+
+                        &:before {
+                            top: -6px;
+                            height: 6px;
+                        }
+                    }
+                }
+
+                &:first-child {
+                    > input + label {
+                        border-radius: 0;
+                    }
+                }
+                &:last-child {
+                    > input + label {
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // 박스 탭
+    &.is-box {
+        flex: 1 1;
+        margin: -12px -20px;
+        padding: 0;
+        overflow: visible;
+        // position: relative;
+        // width: auto;
+        // max-width: calc(100% - 80px) !important;
+        // height: 30px;
+        // margin: 0 0 -24px -20px;
+        // transform: translateY(-12px);
+        // padding: 0;
+        // line-height: 30px;
+        z-index: 1;
+
+        > ul {
+            > li {
+                height: auto;
+                padding: 0 !important;
+                border-right: 1px solid #d6d6d6;
+
+                > input {
+                    & + label {
+                        padding: 19px 30px;
+                        border-radius: 0;
+                        font-size: 18px;
+                        overflow: visible;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 28px;
+                            left: 0;
+                            width: 0;
+                            height: 7px;
+                            margin: -3px 0 0 0;
+                            border-radius: 4px;
+                            background: var(--tertiary);
+                            @include transition();
+                        }
+                    }
+
+                    &:checked + label {
+                        padding: 22px 30px;
+                        background: #ffffff;
+                        color: $font_color_hl;
+                        @include shadow(0, -3px, 4px, 0.04, 0, 0, 0);
+
+                        &:before {
+                            left: -10px;
+                            width: 20px;
+                        }
+                    }
+                }
+
+                &:first-child {
+                    label {
+                        border-radius: 4px 0 0 0;
+                    }
+                }
+                &:last-child {
+                    border-right: none;
+
+                    label {
+                        border-radius: 0 4px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // Small 탭
+    &.is-small {
+        width: 100%;
+        margin: 0;
+        font-size: 1.167em;
+
+        > ul {
+            > li {
+                height: 36px;
+
+                > input {
+                    & + label {
+                        padding: 11px 10px;
+                    }
+
+                    &:checked + label {
+                        padding: 14px 10px;
+                    }
+                }
+            }
+        }
+
+        & + .ui_row {
+            margin-top: 10px;
+        }
+    }
+
+    // 게시판 탭
+    &.is-board {
+        width: auto;
+        padding: 0;
+        margin: 0;
+        font-size: 1.167em;
+
+        > ul {
+            > li {
+                height: auto;
+
+                > input {
+                    & + label {
+                        padding: 13px 40px;
+                    }
+
+                    &:checked + label {
+                        padding: 16px 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ui_box {
+    > .boxtab {
+        display: block;
+        //height: 0;
+
+        /*
+        & + .content {
+            > *:first-child {
+                margin-top: 14px;
+            }
+        }
+        */
+    }
+}

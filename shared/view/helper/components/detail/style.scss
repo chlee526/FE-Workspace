@@ -1,0 +1,27 @@
+@import '@/assets/css/override/_color_set.scss';
+// @import '@shared/styles/base/color_set';
+@import '@shared/styles/util/mixins';
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 1em;
+
+    .subject {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 0 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        color: $font_color_hl;
+        font-size: 2.2em;
+        font-weight: 600;
+    }
+
+    .content {
+        > * {
+            box-sizing: border-box;
+        }
+    }
+}

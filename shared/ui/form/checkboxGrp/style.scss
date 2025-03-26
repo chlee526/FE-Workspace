@@ -1,0 +1,199 @@
+// 그룹
+.dcp_chkboxs {
+    display: inline-flex;
+
+    > * {
+        align-self: center;
+    }
+
+    > hr {
+        width: 0;
+        height: 9px;
+        margin: 0 4px;
+        border: none;
+        // border-right: 1px dashed $component_brd_color;
+    }
+
+    &.is-btn {
+        margin: 0 -2px;
+
+        > .dcp {
+            padding: 0;
+            margin: 0 2px;
+        }
+
+        @at-root .ui_function & {
+            margin: 0 2px;
+        }
+    }
+
+    &.is-box {
+        @extend .dcp_chkboxs, .is-btn;
+        margin: 0;
+
+        // Tablet 이상
+        > .dcp {
+            padding: 0;
+            margin: 0 0 0 -1px;
+
+            input {
+                & + label {
+                    border-radius: 0 !important;
+                }
+
+                &:not([disabled]):hover {
+                    & + label {
+                        z-index: 1;
+                    }
+                }
+            }
+
+            &.allChk {
+                margin: 0;
+
+                label {
+                    border-radius: 4px !important;
+                }
+            }
+
+            &:first-child,
+            &.is-first {
+                margin-left: 0;
+
+                &:not(.allChk) {
+                    label {
+                        border-top-left-radius: 4px !important;
+                        border-bottom-left-radius: 4px !important;
+                    }
+                }
+            }
+
+            &:last-child,
+            &.is-last {
+                &:not(.allChk) {
+                    label {
+                        border-top-right-radius: 4px !important;
+                        border-bottom-right-radius: 4px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-btn,
+    &.is-box {
+        > hr {
+            height: 30px;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        &.is-small {
+            > hr {
+                height: 22px;
+            }
+        }
+
+        &.is-large {
+            > hr {
+                height: 36px;
+            }
+        }
+
+        &.is-xlarge {
+            > hr {
+                height: 50px;
+            }
+        }
+    }
+
+    &.is-small {
+        > hr {
+            margin: 0 2px;
+            // height: 14px;
+            // margin-top: 4px;
+            // margin-bottom: 4px;
+        }
+    }
+
+    &.is-large {
+        > hr {
+            height: 20px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    }
+
+    &.is-xlarge {
+        > hr {
+            height: 24px;
+            margin-top: 13px;
+            margin-bottom: 13px;
+        }
+    }
+
+    &.is-wide {
+        .dcp {
+            label {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+    }
+
+    .is-setting {
+        margin-left: 6px;
+    }
+
+    // Grid style
+    &.is-grid {
+        display: grid;
+
+        > .dcp {
+            padding-left: 0 !important;
+            margin: 0 !important;
+        }
+
+        &.is-box {
+            gap: 1px;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.03);
+
+            > .dcp {
+                input {
+                    & + label {
+                        border: none !important;
+                    }
+                    &:checked {
+                        & + label {
+                            border: none !important;
+                        }
+                    }
+                    &:not([disabled]):checked + label {
+                        border: none !important;
+                    }
+                }
+
+                &:first-child,
+                &.is-first {
+                    &:not(.allChk) {
+                        label {
+                            border-top-left-radius: 0 !important;
+                            border-bottom-left-radius: 0 !important;
+                        }
+                    }
+                }
+
+                &:last-child,
+                &.is-last {
+                    &:not(.allChk) {
+                        label {
+                            border-top-right-radius: 0 !important;
+                            border-bottom-right-radius: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

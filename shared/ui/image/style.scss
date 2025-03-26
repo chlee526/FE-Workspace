@@ -1,0 +1,86 @@
+// Image
+.ui_image {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #e1e1e1;
+    text-align: center;
+    overflow: hidden;
+
+    &.is-no-image {
+        > img {
+            @include opacity(0);
+        }
+
+        &:after {
+            content: '\e048';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            margin: -12px 0 0 0;
+            font-family: 'icomoon';
+            color: #cccccc;
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+
+    .background {
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        width: 110%;
+        height: 110%;
+        background-size: cover;
+        @include blur(10);
+        @include opacity(0.6);
+    }
+
+    &.is-auto {
+        height: 100%;
+
+        &.is-no-image {
+            &:after {
+                line-height: 1em;
+            }
+        }
+    }
+    &.is-60 {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+
+        &:after {
+            font-size: 24px;
+        }
+    }
+    &.is-50 {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+
+        &:after {
+            font-size: 24px;
+        }
+    }
+    &.is-40 {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+
+        &:after {
+            font-size: 24px;
+        }
+    }
+
+    > img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+    }
+}
