@@ -1,4 +1,4 @@
-# 2023 - Vue crossmodule(cli version)
+# 2023 - Vue UIKit(cli version)
 
 ### 목차
 
@@ -25,8 +25,8 @@
 #### Project 정보
 
 -   node: - v18
--   작업목록(QA) : https://docs.google.com/spreadsheets/d/1g3IRt0tCi2_M2hNXsorvzqEkzxdBiV61NHnxKup92Cs/edit#gid=843895961
--   API가이드 : - https://docs.google.com/spreadsheets/d/1UadpLD6xI5XdelzPXwgJh9VIU5n64IXWsXv6aAcHbQk/edit#gid=1695874547
+-   작업목록(QA) : 
+-   API가이드 : 
 -   브랜치
     -   main: 운영
     -   devel: 개발
@@ -128,43 +128,5 @@
     -   <strong>view</strong>··············// 컨텐츠
 
 ---
-
-#### FTP 정보
-
--   58.180.17.8
--   id/pw: 기존 서비스와 동일
-
--   Dashboard(운영) : /usr/local/apache/htdocs/vue_crossmodule/@dashboard
--   Dashboard(개발) : 현재 운영 개발 공용으로 사용 중
-
----
-
-#### Server 정보
-
--   Dashboard(운영) : http://dev-template.dashboard.newenai.co.kr/
--   Dashboard(개발) : 현재 운영 개발 공용으로 사용 중
-
----
-
-#### Local Server 설정
-
--   http://localhost:8765/dashboard
--   http://fe.workspace.demo.devel.com:8765/dashboard
-
-```
-// 서버 시작
-npm run dev
-```
-
----
-
-#### 배포
-
-npm run build
-
-```
-// 배포버전 생성
- npm run build:dev   // develop
- npm run build:prod  // production
 
 ```
