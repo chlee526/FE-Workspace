@@ -1,4 +1,4 @@
-# Team FE, ServiceDevelopmtent - Workspace
+# Team FE, ServiceDevelopment - Workspace
 
 ### 목차
 
@@ -12,6 +12,11 @@
 
 ---
 
+### Demo : [UI-Kit-Vue](https://ui-kit-vue.vercel.app)
+
+---
+
+
 ### History
 
 | 일자       | 버전  | 내용                         |
@@ -24,12 +29,12 @@
 
 ### 프로젝트
 
-| 일자       | 타입     | 프로젝트명   | 개발 Port | git                                                                                                     |
+| 일자       | 타입     | 프로젝트명   | 개발 Port | git                                                                                                    |
 | ---------- | -------- | ------------ | --------- | ------------------------------------------------------------------------------------------------------- |
-| 2023-08-08 | 관리자   | RSN-시장센싱 | 8603      | <a href="https://dev.realsn.com/rnd/solution/fe/2023/2023_mkss" target="_blank">바로가기</a>            |
-| 2023-04-05 | 대시보드 | 신한카드     | 8602      | <a href="https://dev.realsn.com/rnd/solution/fe/2023/2023_shinhancard" target="_blank">바로가기</a>     |
-| 2023-04-01 | 대시보드 | DEMO         | 8765      | <a href="https://dev.realsn.com/rnd/solution/fe/demo-dashboard.git" target="_blank">바로가기</a>        |
-| 2023-04-01 | 대시보드 | Boilerplate  | 8601      | <a href="https://dev.realsn.com/rnd/solution/fe/boilerplate-dashboard.git" target="_blank">바로가기</a> |
+| 2023-08-08 | 관리자   | RSN-시장센싱 |     |             |
+| 2023-04-05 | 대시보드 | 신한카드     |      |  |
+| 2023-04-01 | 대시보드 | DEMO         |    |    |
+| 2023-04-01 | 대시보드 | Boilerplate  |       |  |
 
 ---
 
