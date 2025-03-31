@@ -12,10 +12,6 @@
 
 ---
 
-### Demo : [UI-Kit-Vue](https://ui-kit-vue.vercel.app)
-
----
-
 
 ### History
 
